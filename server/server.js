@@ -1,16 +1,22 @@
 require('dotenv').config({path: "./vars/.env"})
 const express = require("express");
+const app = express();
+const port = 5000;
+
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const app = express();
-const port = process.env.PORT || 5000;
+
+
+const router = require( './routes/user-routes')
+
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use(router)
 
 
 mongoose.connect(
