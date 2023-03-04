@@ -1,6 +1,6 @@
 const express = require("express");
 const Product = require("../models/Product");
-
+const User = require('../models/User')
 
 const addproduct = async(req,res)=>{
     const product = new Product(req.body)
@@ -25,11 +25,15 @@ const getallproduct = async (req,res)=>{
 
 const getOneproduct = async(req,res)=>{
     try {
-        const product = await Product.findById(req.params.id)
+        const product = await Product.findById(req.params.id).populate({
+            path:'seller',
+             select: 'name email '
+        })
         if(!product){
             return res.status(404).send()
         }
-    res.send(product)
+    
+   res.send(product)
     } catch (error) {
         res.status(500).send(error)
     }
