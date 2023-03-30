@@ -13,11 +13,15 @@ const jwt = require("jsonwebtoken");
 
 const router = require( './routes/user-routes')
 const Productrouter = require( './routes/product-routes')
+const Sellerrouter = require('./routes/seller-routes')
+const Userrouter = require('./routes/user-routes')
 
 app.use(bodyParser.json());
 app.use(cors());
 app.use(router)
 app.use('/product',Productrouter)
+app.use('/seller',Sellerrouter)
+app.use('/user',Userrouter)
 
 
 mongoose.connect(

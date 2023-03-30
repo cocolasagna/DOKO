@@ -25,10 +25,7 @@ const getallproduct = async (req,res)=>{
 
 const getOneproduct = async(req,res)=>{
     try {
-        const product = await Product.findById(req.params.id).populate({
-            path:'seller',
-             select: 'name email '
-        })
+        const product = await Product.findById(req.params.id)
         if(!product){
             return res.status(404).send()
         }
@@ -78,3 +75,13 @@ const updateproduct = async (req, res) => {
     }
 
 module.exports = {addproduct , getallproduct , getOneproduct , deleteproduct , updateproduct}
+
+
+//populate  method
+
+/*
+.populate({
+    path:'seller',
+     select: 'name email '
+})
+*/
