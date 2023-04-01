@@ -8,7 +8,7 @@ function ProductDetail() {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const response = await axios.get(`http://localhost:5000/product/${id}`);
+      const response = await axios.get(`http://localhost:5000/seller/product/${id}`);
       setProduct(response.data);
     };
     fetchProduct();

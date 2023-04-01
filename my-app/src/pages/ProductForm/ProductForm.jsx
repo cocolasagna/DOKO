@@ -6,10 +6,12 @@ function ProductForm() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     try {
-      const response = await axios.post("/api/product", {
+      const response = await axios.post("http://localhost:5000/seller/addproduct", {
         name,
         description,
         price,

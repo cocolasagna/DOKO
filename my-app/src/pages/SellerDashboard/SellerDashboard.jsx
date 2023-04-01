@@ -7,7 +7,7 @@ function SellerDashboard() {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await axios.get("/api/seller/products");
+      const response = await axios.get("http://localhost:5000/seller/product");
       setProducts(response.data);
     };
     fetchProducts();

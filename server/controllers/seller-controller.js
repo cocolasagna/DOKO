@@ -1,4 +1,5 @@
 const express = require("express");
+const Cookies = require('js-cookie')
 const Product = require("../models/Product");
 const Seller = require('../models/Seller')
 
@@ -19,9 +20,27 @@ const register = async (req,res)=>{
 
 }
 
+const login = async(req,res)=>{
+    try{
+        const user = await Seller.findByCredentials(req.body.email, req.body.password);
+        const token = await user.generateAuthToken()
+        await  res.cookie("access_token", token ,{
+            //httpOnly:true,
+          //  sameSite: 'None',
+          // secure:true
+            })       
+       
+       res.send({user,token})
+    }catch(err){
+        console.log(err)
+        res.status(400).send(err)
+    }
+}
+
+
 const product = async(req,res)=>{
     try {
-        const seller = req.user;
+        const seller = req.seller;
         const products = await Product.find({ seller: seller._id }).populate({
             path:'seller',
              select: 'name email '
@@ -34,9 +53,18 @@ const product = async(req,res)=>{
 
 const addproduct = async(req,res)=>{
     const product = new Product(req.body)
+ /* const sellerID  = req.seller
+  const product = new Product({
+    name:req.body.name, 
+    description: req.body.description,
+    price: req.body.price, 
+    seller: sellerID
+
+  })*/
     try{
         await product.save()
         res.status(201).send(product)
+        console.log('product added')
     }
     catch(err){
         res.status(400).send(err)
@@ -80,4 +108,4 @@ const updateproduct = async (req, res) => {
     }
     
 
-module.exports = {register , product , addproduct, updateproduct, deleteproduct}
+module.exports = {register ,login ,  product , addproduct, updateproduct, deleteproduct}

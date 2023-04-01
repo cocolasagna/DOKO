@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+
 const sellerSchema = new mongoose.Schema({
     name:{
         type:String,
@@ -42,6 +43,7 @@ sellerSchema.statics.findByCredentials = async (email, password) => {
 sellerSchema.methods.generateAuthToken = async function(){
     const seller = this; 
     const token  = jwt.sign ({_id: seller._id.toString() }, process.env.secret_key)
+   
     return token;
 }
 

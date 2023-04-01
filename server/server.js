@@ -2,7 +2,7 @@ require('dotenv').config({path: "./vars/.env"})
 const express = require("express");
 const app = express();
 const port = 5000;
-
+const cookieParser = require('cookie-parser')
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -17,7 +17,10 @@ const Sellerrouter = require('./routes/seller-routes')
 const Userrouter = require('./routes/user-routes')
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(
+    {credentials: true, origin:'http://localhost:3000'}
+));
+app.use(cookieParser())
 app.use(router)
 app.use('/product',Productrouter)
 app.use('/seller',Sellerrouter)
