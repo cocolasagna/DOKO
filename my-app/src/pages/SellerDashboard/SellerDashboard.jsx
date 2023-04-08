@@ -5,9 +5,15 @@ import axios from "axios";
 function SellerDashboard() {
   const [products, setProducts] = useState([]);
 
+
   useEffect(() => {
+    
     const fetchProducts = async () => {
-      const response = await axios.get("http://localhost:5000/seller/product");
+      const response = await axios.get("http://localhost:5000/seller/product" ,
+        {params:{
+          seller:localStorage.getItem('Seller')
+   
+        }});
       setProducts(response.data);
     };
     fetchProducts();

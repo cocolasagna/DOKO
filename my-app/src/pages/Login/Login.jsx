@@ -16,19 +16,16 @@ const LoginForm = () => {
       const response = await axios.post("http://localhost:5000/seller/login", {
         email,
         password,
-      },  {
-        withCredntials: true,
-        credentials: 'include'
       }
    
       );
 
       // Assuming the server responds with a JWT token upon successful authentication
-      const token = response.data.token;
-    
+     const Seller = response.data.userId;
+      console.log(Seller)
       // Store the token in local storage or a cookie
-      //localStorage.setItem("token", token);
-    Cookies.set('jwtToken', token)
+    localStorage.setItem("Seller", Seller);
+  //  Cookies.set('jwtToken', token)
       
       // Redirect the user to the home page or dashboard
       window.location.href = "/seller/dashboard";

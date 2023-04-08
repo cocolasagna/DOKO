@@ -5,7 +5,7 @@ function ProductForm() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-
+  const seller = localStorage.getItem('Seller')
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,8 +15,10 @@ function ProductForm() {
         name,
         description,
         price,
+        seller
       });
       console.log(response.data);
+      window.location.href = "/seller/dashboard"
     } catch (error) {
       console.log(error);
     }

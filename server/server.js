@@ -18,7 +18,8 @@ const Userrouter = require('./routes/user-routes')
 
 app.use(bodyParser.json());
 app.use(cors(
-    {credentials: true, origin:'http://localhost:3000'}
+    {credentials: true, origin:'http://localhost:3000'},
+    {exposedHeaders : 'Authorization'}
 ));
 app.use(cookieParser())
 app.use(router)

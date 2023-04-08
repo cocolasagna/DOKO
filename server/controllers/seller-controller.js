@@ -2,6 +2,8 @@ const express = require("express");
 const Cookies = require('js-cookie')
 const Product = require("../models/Product");
 const Seller = require('../models/Seller')
+var cookieParser = require('cookie-parser')
+
 
 //register seller
 const register = async (req,res)=>{
@@ -23,14 +25,18 @@ const register = async (req,res)=>{
 const login = async(req,res)=>{
     try{
         const user = await Seller.findByCredentials(req.body.email, req.body.password);
+        const userId = user.id
         const token = await user.generateAuthToken()
-        await  res.cookie("access_token", token ,{
+
+    // sessionStorage.setItem('token', token);
+   
+       /* await  res.cookie("access_token", token ,{
             //httpOnly:true,
           //  sameSite: 'None',
           // secure:true
-            })       
-       
-       res.send({user,token})
+            })  */    
+  res.set('Authorization', `Bearer ${token}`)
+       res.send({userId,token})
     }catch(err){
         console.log(err)
         res.status(400).send(err)
@@ -38,13 +44,20 @@ const login = async(req,res)=>{
 }
 
 
+
+
+
+
 const product = async(req,res)=>{
+    const seller = req.query.seller
+    
     try {
-        const seller = req.seller;
-        const products = await Product.find({ seller: seller._id }).populate({
+        
+        const products= await Product.find({ seller: seller}).populate({
             path:'seller',
              select: 'name email '
         });
+       
         res.send(products);
       } catch (error) {
         res.status(500).send(error);
@@ -53,18 +66,12 @@ const product = async(req,res)=>{
 
 const addproduct = async(req,res)=>{
     const product = new Product(req.body)
- /* const sellerID  = req.seller
-  const product = new Product({
-    name:req.body.name, 
-    description: req.body.description,
-    price: req.body.price, 
-    seller: sellerID
 
-  })*/
     try{
         await product.save()
         res.status(201).send(product)
         console.log('product added')
+    
     }
     catch(err){
         res.status(400).send(err)
