@@ -20,12 +20,12 @@ const LoginForm = () => {
    
       );
 
-      // Assuming the server responds with a JWT token upon successful authentication
+    
      const Seller = response.data.userId;
       console.log(Seller)
-      // Store the token in local storage or a cookie
+  
     localStorage.setItem("Seller", Seller);
-  //  Cookies.set('jwtToken', token)
+ 
       
       // Redirect the user to the home page or dashboard
       window.location.href = "/seller/dashboard";

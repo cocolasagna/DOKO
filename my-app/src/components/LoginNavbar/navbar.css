@@ -30,6 +30,8 @@
   transition: box-shadow 1s, background-color 1s;
   border: 0.5px solid black;
   border-radius: 20px;
+  text-decoration: none;
+  color:black;
 }
 
 .navbar-button:hover {

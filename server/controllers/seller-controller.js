@@ -28,13 +28,7 @@ const login = async(req,res)=>{
         const userId = user.id
         const token = await user.generateAuthToken()
 
-    // sessionStorage.setItem('token', token);
-   
-       /* await  res.cookie("access_token", token ,{
-            //httpOnly:true,
-          //  sameSite: 'None',
-          // secure:true
-            })  */    
+    
   res.set('Authorization', `Bearer ${token}`)
        res.send({userId,token})
     }catch(err){
@@ -115,4 +109,13 @@ const updateproduct = async (req, res) => {
     }
     
 
-module.exports = {register ,login ,  product , addproduct, updateproduct, deleteproduct}
+    const productdetails = async(req,res)=>{
+        try {
+           const product = await Product.findById(req.params.id) 
+           res.send(product)
+        } catch (error) {
+            console.log(err)
+        }
+    }
+
+module.exports = {register ,login ,  product , addproduct, updateproduct, deleteproduct , productdetails}

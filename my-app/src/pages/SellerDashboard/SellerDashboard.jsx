@@ -21,8 +21,9 @@ function SellerDashboard() {
 
   return (
     <div>
-      <h2>My Products</h2>
+     
       <Link to="/seller/product/new">Create Product</Link>
+      <h2>My Products</h2>
       <ul>
         {products.map((product) => (
           <li key={product._id}>
