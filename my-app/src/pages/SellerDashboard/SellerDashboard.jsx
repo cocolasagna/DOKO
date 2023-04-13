@@ -10,10 +10,9 @@ function SellerDashboard() {
     
     const fetchProducts = async () => {
       const response = await axios.get("http://localhost:5000/seller/product" ,
-        {params:{
-          seller:localStorage.getItem('Seller')
-   
-        }});
+        {
+          withCredentials:true
+        });
       setProducts(response.data);
     };
     fetchProducts();

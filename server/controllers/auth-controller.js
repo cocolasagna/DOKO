@@ -1,40 +1,39 @@
-
 const jwt = require("jsonwebtoken");
 const Seller = require("../models/Seller");
+const cookieParser = require('cookie-parser');
+
+const uuidv4 = require('uuid').v4
+const sessions ={}
 
 
 const auth = async (req, res, next) => {
-
-  console.log('authentication')
-
   try {
- 
+  
+      const authcookie = req.cookies.auth_token
+    
+     
+    if (!authcookie) {
+      throw new Error("No token found");
+    }
+    const decoded = jwt.verify(authcookie, process.env.secret_key);
    
-   //const token = Cookies.get("access_token") 
-   //const token = req.header("Authorization").replace("Bearer ", "");
-    const authHeader = req.headers['Authorization']
-   
-    const token = authHeader && authHeader.split('')[1]
-    console.log(token)
-
-    const decoded = jwt.verify(token, process.env.secret_key);
+  
     const seller = await Seller.findOne({
       _id: decoded._id,
-      "tokens.token": token,
+      "tokens.token": authcookie,
     });
-    
     if (!seller) {
-      throw new Error();
+      throw new Error("Seller not found");
     }
-
-    req.token = token;
-    req.seller = seller;
    
+    req.token = authcookie;
+    req.seller = seller;
     next();
   } catch (error) {
     res.status(401).send({ error: "Please authenticate." });
   }
-
 };
 
-module.exports = auth;
+
+
+module.exports = auth

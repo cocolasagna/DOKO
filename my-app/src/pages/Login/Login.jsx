@@ -16,17 +16,16 @@ const LoginForm = () => {
       const response = await axios.post("http://localhost:5000/seller/login", {
         email,
         password,
+      },
+    
+      {
+        withCredentials:true
       }
    
       );
 
-    
-     const Seller = response.data.userId;
-      console.log(Seller)
   
-    localStorage.setItem("Seller", Seller);
- 
-      
+
       // Redirect the user to the home page or dashboard
       window.location.href = "/seller/dashboard";
     } catch (error) {

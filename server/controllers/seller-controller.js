@@ -3,8 +3,11 @@ const Cookies = require('js-cookie')
 const Product = require("../models/Product");
 const Seller = require('../models/Seller')
 var cookieParser = require('cookie-parser')
+const jwt = require("jsonwebtoken");
+const auth = require("./auth-controller");
 
-
+const uuidv4 = require('uuid').v4
+const sessions ={}
 //register seller
 const register = async (req,res)=>{
     const user = new Seller(req.body)
@@ -21,33 +24,37 @@ const register = async (req,res)=>{
     }
 
 }
-
-const login = async(req,res)=>{
-    try{
-        const user = await Seller.findByCredentials(req.body.email, req.body.password);
-        const userId = user.id
-        const token = await user.generateAuthToken()
-
-    
-  res.set('Authorization', `Bearer ${token}`)
-       res.send({userId,token})
-    }catch(err){
-        console.log(err)
-        res.status(400).send(err)
+const login = async (req, res, next) => {
+    try {
+      const user = await Seller.findByCredentials(req.body.email, req.body.password);
+      const token = await user.generateAuthToken();
+     /* res.cookie("token", token, {
+        
+         httpOnly: false
+       // expires: new Date(Date.now() + 60 * 1000),
+      });*/
+      res.set('Set-Cookie',`auth_token=${token}`)
+      res.send({ userId: user.id });
+     
+    } catch (err) {
+      console.log(err);
+      res.status(400).send(err);
     }
-}
-
+  };
 
 
 
 
 
 const product = async(req,res)=>{
-    const seller = req.query.seller
+    
+   // const seller = req.query.seller
+    const seller = req.seller
+    const sellerId = seller.id
     
     try {
         
-        const products= await Product.find({ seller: seller}).populate({
+        const products= await Product.find({ seller: sellerId}).populate({
             path:'seller',
              select: 'name email '
         });
@@ -59,7 +66,16 @@ const product = async(req,res)=>{
 }
 
 const addproduct = async(req,res)=>{
-    const product = new Product(req.body)
+    const Seller = req.seller
+    const sellerId = Seller.id
+    console.log("seller:", sellerId)
+    const product = new Product({
+        name:req.body.name,
+        description : req.body.description, 
+        price:req.body.price,
+        seller: sellerId
+    }
+    )
 
     try{
         await product.save()

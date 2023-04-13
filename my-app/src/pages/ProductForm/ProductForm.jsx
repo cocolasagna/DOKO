@@ -5,7 +5,7 @@ function ProductForm() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const seller = localStorage.getItem('Seller')
+ 
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,8 +14,10 @@ function ProductForm() {
       const response = await axios.post("http://localhost:5000/seller/addproduct", {
         name,
         description,
-        price,
-        seller
+        price
+        
+      }, {
+        withCredentials:true
       });
       console.log(response.data);
       window.location.href = "/seller/dashboard"

@@ -11,21 +11,38 @@ const jwt = require("jsonwebtoken");
 
 
 
+app.use(cors(
+    {
+        credentials: true,
+         origin:'http://localhost:3000',
+        
+        },
+    
+));
+
+app.use(cookieParser())
+app.use(bodyParser.json());
+
+
+
+
 const router = require( './routes/user-routes')
 const Productrouter = require( './routes/product-routes')
 const Sellerrouter = require('./routes/seller-routes')
 const Userrouter = require('./routes/user-routes')
 
-app.use(bodyParser.json());
-app.use(cors(
-    {credentials: true, origin:'http://localhost:3000'},
-    {exposedHeaders : 'Authorization'}
-));
-app.use(cookieParser())
+
 app.use(router)
 app.use('/product',Productrouter)
 app.use('/seller',Sellerrouter)
 app.use('/user',Userrouter)
+
+app.use((req,res,next)=>{
+    const token = req.cookies.token
+    console.log('App',token)
+    next()
+})
+
 
 
 mongoose.connect(

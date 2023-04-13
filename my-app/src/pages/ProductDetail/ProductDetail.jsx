@@ -8,7 +8,9 @@ function ProductDetail() {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const response = await axios.get(`http://localhost:5000/seller/product/${id}`);
+      const response = await axios.get(`http://localhost:5000/seller/product/${id}` , {
+        withCredentials:true
+      });
       setProduct(response.data);
     };
     fetchProduct();
