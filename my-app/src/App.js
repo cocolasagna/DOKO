@@ -8,6 +8,7 @@ import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Login from "./pages/Login/Login";
 import Signup from './pages/signup/Signup';
 import Home from './pages/home/Home'
+import Update from './pages/update/update'
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
           <Route exact path = '/product/:id' element = {<ProductDetail/>}/>
           <Route exact path = '/seller/login' element = {<Login/>}/>
           <Route exact path = '/seller/signup' element = {<Signup/>}/>
+          <Route exact path = '/product/update/:id' element = {<Update/>}/>
           <Route exact path = '/seller/dashboard' element = {<Home/>}/>
         </Routes>
       

@@ -135,4 +135,15 @@ const updateproduct = async (req, res) => {
         }
     }
 
-module.exports = {register ,login ,  product , addproduct, updateproduct, deleteproduct , productdetails}
+    const logout = async(req,res)=>{
+            try {
+                res.clearCookie('auth_token' ,  { path: '/seller' })
+               res.end()
+                console.log('Logged Out')
+            } catch (error) {
+                console.log(error)
+            }
+     
+    }
+
+module.exports = {register ,login ,  product , addproduct, updateproduct, deleteproduct , productdetails , logout}

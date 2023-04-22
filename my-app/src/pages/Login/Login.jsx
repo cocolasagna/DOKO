@@ -4,6 +4,7 @@ import axios from "axios";
 import LoginNavbar from "../../components/LoginNavbar/LoginNavbar";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PasswordOutlinedIcon from "@mui/icons-material/PasswordOutlined";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -37,14 +38,15 @@ function Login() {
 
   return (
     <>
-      <LoginNavbar buttontext="Sign In" />
+
+    <Link to = 'seller/signup' ><LoginNavbar buttontext="Sign In" /></Link>  
       <div className="body">
         <div className="background">
           <div className="center-block">
             <div className="center-block-left">
               <img
                 className="loginImage"
-                src="./images/dokologovertical.png"
+                src="/images/dokologovertical.png"
                 alt="doko logo"
               />
             </div>

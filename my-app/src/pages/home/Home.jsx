@@ -2,7 +2,7 @@ import classes from "./Home.module.css";
 import SideBar from "../../components/SideBar/Sidebar";
 import MainNavbar from "../../components/MainNavbar/MainNavbar";
 import Homefeed from "../../components/HomeFeed/Homefeed";
-import { Link } from "react-router-dom";
+
 import { useContext , useState  , useEffect} from "react";
 import axios from "axios";
 
@@ -30,7 +30,7 @@ function Home() {
     <>
       <MainNavbar />
       <div className={classes.homeContainer}>
-      <Link to="/seller/product/new">Create Product</Link>
+     
         <SideBar name= {seller} />
         <Homefeed />
       </div>

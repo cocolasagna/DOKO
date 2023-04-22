@@ -4,6 +4,8 @@ import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlin
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import AutoAwesomeOutlinedIcon from "@mui/icons-material/AutoAwesomeOutlined";
+import { Link } from "react-router-dom";
+
 
 function Sidebar(props) {
   return (
@@ -45,9 +47,12 @@ function Sidebar(props) {
         <hr />
 
         <div className={classes.optionCover}>
+        <Link to="/seller/product/new">
           <AutoAwesomeOutlinedIcon className={classes.icon} />
-          <span>Wishlist</span>
+          <span>Create Product</span>
+          </Link>
         </div>
+     
       </div>
     </div>
   );
