@@ -7,15 +7,17 @@ import ProductForm from "./pages/ProductForm/ProductForm";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Login from "./pages/Login/Login";
 import Signup from './pages/signup/Signup';
+import Home from './pages/home/Home'
 function App() {
   return (
     <Router>
         <Routes>
-          <Route exact path = '/seller/dashboard' element = {<SellerDashboard/>}/>
+         { /*<Route exact path = '/seller/dashboard' element = {<SellerDashboard/>}/> */}
           <Route exact path = '/seller/product/new' element = {<ProductForm/>}/>
           <Route exact path = '/product/:id' element = {<ProductDetail/>}/>
           <Route exact path = '/seller/login' element = {<Login/>}/>
           <Route exact path = '/seller/signup' element = {<Signup/>}/>
+          <Route exact path = '/seller/dashboard' element = {<Home/>}/>
         </Routes>
       
     </Router>

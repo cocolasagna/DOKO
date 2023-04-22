@@ -1,0 +1,43 @@
+.listCover {
+  position: relative;
+  /* border: 2px solid black; */
+  top: 5%;
+  width: 86%;
+  height: 75%;
+  left: 5%;
+  padding: 1%;
+}
+
+.listCover span {
+  position: relative;
+  left: 2%;
+  font-size: 1.5rem;
+  top: -5%;
+}
+
+.list {
+  position: relative;
+  /* border: 2px solid red; */
+  height: 75%;
+  width: 100%;
+  list-style: none;
+  align-items: center;
+  /* justify-content: space-around; */
+  padding: 1%;
+  display: flex;
+  justify-content: start;
+  overflow-x: scroll;
+  top: -8%;
+}
+
+.listCover h1 {
+  margin: 2% 5% 5% 5%;
+  position: relative;
+  right: 3%;
+}
+
+.listCover hr {
+  position: relative;
+  top: -8%;
+  right: 3.5%;
+}

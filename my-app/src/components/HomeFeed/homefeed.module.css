@@ -1,0 +1,5 @@
+.homeWrapper {
+  border: 1px solid red;
+  flex: 80%;
+  overflow-y: scroll;
+}
