@@ -67,7 +67,7 @@ const products = [
 
 function Homefeed() {
   const [products, setProducts] = useState([]);
-
+ 
 
   useEffect(() => {
     
@@ -76,15 +76,16 @@ function Homefeed() {
         {
           withCredentials:true
         });
-      setProducts(response.data);
+      setProducts(response.data.products);
+   
     };
     fetchProducts();
   }, []);
   return (
     <div className={classes.homeWrapper}>
       <Advert />
-      <Categorylist />
-      <Productlist product={products} />
+
+      <Productlist product={products}  />
       <Endblock />
     </div>
   );

@@ -1,10 +1,13 @@
 import classes from "./productitem.module.css";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+import { Link } from "react-router-dom";
 
 function Productitem(props) {
   return (
+  
     <div className={classes.itemCover}>
+        <Link to={`/product/${props.Id}`}>
       <li>
         <div className={classes.itemImage}>
           <img src={props.image} alt="" />
@@ -26,7 +29,9 @@ function Productitem(props) {
           </div>
         </div>
       </li>
+      </Link> 
     </div>
+
   );
 }
 

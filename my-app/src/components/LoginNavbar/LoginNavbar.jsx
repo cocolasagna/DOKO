@@ -4,7 +4,7 @@ function LoginNavbar(props) {
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <img src="./images/dokologohorizontal.png" alt="Doko Logo" />
+        <img src="/images/dokologohorizontal.png" alt="Doko Logo" />
       </div>
 
       <div className="navbar-right">

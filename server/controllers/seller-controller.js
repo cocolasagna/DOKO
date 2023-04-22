@@ -50,7 +50,8 @@ const product = async(req,res)=>{
     
    // const seller = req.query.seller
     const seller = req.seller
-    const sellerId = seller.id
+    const sellerName = seller.name
+    const sellerId = seller._id
     
     try {
         
@@ -59,7 +60,7 @@ const product = async(req,res)=>{
              select: 'name email '
         });
        
-        res.send(products);
+        res.send({products , sellerName});
       } catch (error) {
         res.status(500).send(error);
       }

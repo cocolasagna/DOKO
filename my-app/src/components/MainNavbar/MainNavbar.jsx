@@ -6,14 +6,14 @@ function MainNavbar(props) {
   return (
     <div className={classes.navbar}>
       <div className={classes.navbarleft}>
-        <img src="./images/dokologohorizontal.png" alt="Doko Logo" />
+        <img src="/images/dokologohorizontal.png" alt="Doko Logo" />
       </div>
 
       <div className={classes.navbarmid}>
         <nav>
           <ul>
             <li>
-              <Link to="/home-page">Home</Link>
+              <Link to="/seller/dashboard">Home</Link>
             </li>
           </ul>
           <ul>

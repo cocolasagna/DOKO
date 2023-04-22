@@ -10,7 +10,7 @@ function Sidebar(props) {
     <div className={classes.sidebarMain}>
       <div className={classes.profileWrapper}>
         <div className={classes.imgWrapper}>
-          <img src="./images/profile-pic1.jpg" alt="profile picture" />
+          <img src="/images/profile-pic1.jpg" alt="profile picture" />
         </div>
 
         <div className={classes.nameWrapper}>

@@ -8,7 +8,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+const multer = require("multer")
+const path = require("path")
 
 
 app.use(cors(
@@ -22,8 +23,28 @@ app.use(cors(
 
 app.use(cookieParser())
 app.use(bodyParser.json());
+app.use(express.static('public'))
+app.use(express.urlencoded({extended: false}))
 
+const storage = multer.diskStorage({
+    destination:(req,file,cb)=> {
+        cb(null,'./uploads');
+    },
+    filename: (req,file,cb) => {
+        cb(null,`${Date.now()}-${file.originalname}`)
+    }
 
+});
+
+const upload = multer({storage})
+
+app.post("/upload", upload.single("image") , (req,res) =>{
+    try{
+       return res.status(200).json("File uploaded successfully")
+    }catch(err){
+        console.log(err)
+    }
+})
 
 
 const router = require( './routes/user-routes')

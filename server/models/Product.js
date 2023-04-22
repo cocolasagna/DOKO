@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema ({
         ref: "Seller",
     },
     image: {
-        type:Array, 
+        type:String, 
       //  required: true,
     }
 

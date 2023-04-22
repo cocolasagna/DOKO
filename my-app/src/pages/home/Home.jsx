@@ -3,14 +3,35 @@ import SideBar from "../../components/SideBar/Sidebar";
 import MainNavbar from "../../components/MainNavbar/MainNavbar";
 import Homefeed from "../../components/HomeFeed/Homefeed";
 import { Link } from "react-router-dom";
+import { useContext , useState  , useEffect} from "react";
+import axios from "axios";
+
+
+
+
 
 function Home() {
+  const [seller, setSeller] = useState();
+ 
+
+  useEffect(() => {
+    
+    const fetchSeller = async () => {
+      const response = await axios.get("http://localhost:5000/seller/product" ,
+        {
+          withCredentials:true
+        });
+      setSeller(response.data.sellerName);
+   
+    };
+    fetchSeller();
+  }, []);
   return (
     <>
       <MainNavbar />
       <div className={classes.homeContainer}>
       <Link to="/seller/product/new">Create Product</Link>
-        <SideBar name="Sahil Tuladhar" id="17912" />
+        <SideBar name= {seller} />
         <Homefeed />
       </div>
     </>
