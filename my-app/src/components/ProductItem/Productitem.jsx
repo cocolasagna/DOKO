@@ -1,33 +1,87 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 import classes from "./productitem.module.css";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import CartContext from "../../store/cart-context";
+import NotificationContext from "../../store/notification-context";
+import ProductContext from "../../store/product-context";
+import RemoveShoppingCartOutlinedIcon from "@mui/icons-material/RemoveShoppingCartOutlined";
+import DoNotDisturbOnOutlinedIcon from "@mui/icons-material/DoNotDisturbOnOutlined";
 
 function Productitem(props) {
-  
-  const handleClick = async(e)=>{
-        const id = props.Id
-        e.preventDefault()
-        try {
-          const response = await axios.delete(`http://localhost:5000/seller/product/${id}` , {
-            withCredentials: true
-          })
-          console.log(response)
-          window.location.href = "/seller/dashboard"
-        } catch (error) {
-          console.log(error)
-        }
+  const cartCtx = useContext(CartContext);
+  const notiCtx = useContext(NotificationContext);
+  const productCtx = useContext(ProductContext);
+  const itemIsAdded = cartCtx.itemInCart(props.id);
+  const itemisWished = cartCtx.itemInWish(props.id);
+
+  function productPageHandler() {
+    productCtx.productClicked = {
+      id: props.id,
+      image: props.image,
+      productName: props.productName,
+      price: props.price,
+    };
+
+    console.log(productCtx.productClicked);
+  }
+
+  function notificationAccept() {
+    notiCtx.addNotification({
+      id: props.id,
+      image: props.image,
+      productName: props.productName,
+      price: props.price,
+    });
+
+    notiCtx.acceptNotification();
+  }
+
+  function notificationReject() {
+    notiCtx.addNotification({
+      id: props.id,
+      image: props.image,
+      productName: props.productName,
+      price: props.price,
+    });
+    notiCtx.rejectNotification();
+  }
+
+  function toggleWishAddStatusHandler() {
+    if (itemisWished) {
+      cartCtx.removeWish(props.id);
+    } else {
+      cartCtx.addWish({
+        id: props.id,
+        image: props.image,
+        productName: props.productName,
+        price: props.price,
+      });
+    }
+  }
+
+  function toggleItemAddStatusHandler() {
+    if (itemIsAdded) {
+      cartCtx.removeItem(props.id);
+    } else {
+      cartCtx.addItem({
+        id: props.id,
+        image: props.image,
+        productName: props.productName,
+        price: props.price,
+      });
+    }
   }
 
   return (
-  
     <div className={classes.itemCover}>
-        <Link to={`/product/${props.Id}`}>
       <li>
-        <div className={classes.itemImage}>
-          <img src={props.image} alt="" />
-        </div>
+        <Link to="/product-page">
+          <div className={classes.itemImage} onClick={productPageHandler}>
+            <img src={props.image} alt="" />
+          </div>
+        </Link>
 
         <div className={classes.itemInfo}>
           <div className={classes.infoUp}>
@@ -35,24 +89,38 @@ function Productitem(props) {
           </div>
 
           <div className={classes.infoDown}>
-            <span>{props.price}</span>
-
-            <button className={classes.addBtn} onClick={handleClick}>
-              <ShoppingBasketOutlinedIcon className={classes.icon} />
+            <span>${props.price}</span>
+            <button
+              className={classes.addBtn}
+              onClick={() => {
+                toggleItemAddStatusHandler();
+                notificationAccept();
+              }}
+            >
+              {" "}
+              {itemIsAdded ? (
+                <RemoveShoppingCartOutlinedIcon className={classes.icon} />
+              ) : (
+                <ShoppingBasketOutlinedIcon className={classes.icon} />
+              )}
             </button>
-          
-            <button className={classes.bargainBtn}>
-            <Link to={`/product/update/${props.Id}`}>
-            <LocalOfferIcon className={classes.icon} />
-            </Link>
+            <button
+              className={classes.bargainBtn}
+              onClick={() => {
+                toggleWishAddStatusHandler();
+                notificationReject();
+              }}
+            >
+              {itemisWished ? (
+                <DoNotDisturbOnOutlinedIcon className={classes.icon} />
+              ) : (
+                <LocalOfferIcon className={classes.icon} />
+              )}
             </button>
-           
           </div>
         </div>
       </li>
-      </Link> 
     </div>
-
   );
 }
 

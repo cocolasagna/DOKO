@@ -1,0 +1,22 @@
+.profileFeedWrapper {
+  flex: 80%;
+  overflow-y: scroll;
+}
+
+.profileContent {
+  position: relative;
+  top: -8%;
+  height: 95%;
+  margin-bottom: -5%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.displayText {
+  font-size: 35px;
+  border: 2px solid black;
+  padding: 1%;
+  border-radius: 30px;
+  background-color: #b5948c83;
+}

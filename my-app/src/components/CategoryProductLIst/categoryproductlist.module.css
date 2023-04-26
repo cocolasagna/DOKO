@@ -8,13 +8,6 @@
   padding: 1%;
 }
 
-.listCover span {
-  position: relative;
-  left: 2%;
-  font-size: 1.5rem;
-  top: -5%;
-}
-
 .list {
   position: relative;
   /* border: 2px solid red; */
@@ -23,11 +16,10 @@
   list-style: none;
   align-items: center;
   /* justify-content: space-around; */
-  padding: 1%;
+  padding: 2%;
   display: flex;
   justify-content: start;
   overflow-x: scroll;
-  top: -8%;
 }
 
 .listCover h1 {
@@ -39,5 +31,6 @@
 .listCover hr {
   position: relative;
   top: -8%;
+  margin-bottom: -20px;
   right: 3.5%;
 }

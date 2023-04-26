@@ -2,23 +2,19 @@ import classes from "./mainnavbar.module.css";
 import { Link } from "react-router-dom";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import axios from "axios";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 function MainNavbar(props) {
-
- const handleLogout = async(req,res)=>{
-  
+  const handleLogout = async (req, res) => {
     try {
-   
-      const response = await axios.post('http://localhost:5000/seller/logout')
-      Cookies.remove('auth_token', { path: '/seller' });
-      console.log(response)
-      window.location.href = '/seller/login'
+      const response = await axios.post("http://localhost:5000/seller/logout");
+      Cookies.remove("auth_token", { path: "/seller" });
+      console.log(response);
+      window.location.href = "/seller/login";
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-  
+  };
 
   return (
     <div className={classes.navbar}>
@@ -35,15 +31,12 @@ function MainNavbar(props) {
           </ul>
           <ul>
             <li>
-              <button onClick={handleLogout}>
-             Logout
-              </button>
-              
+              <button onClick={handleLogout}>Logout</button>
             </li>
           </ul>
           <ul>
             <li>
-              <Link to="/login-page">About Us</Link>
+              <Link to="/aboutus-page">About Us</Link>
             </li>
           </ul>
         </nav>

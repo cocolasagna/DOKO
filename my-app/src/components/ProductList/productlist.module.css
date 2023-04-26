@@ -15,10 +15,10 @@
   width: 100%;
   list-style: none;
   align-items: center;
-  /* justify-content: space-around; */
   padding: 1%;
   display: flex;
-  justify-content: start;
+  flex-wrap: wrap;
+  align-items: center;
+  /* justify-content: space-around; */
   overflow-x: scroll;
 }
-

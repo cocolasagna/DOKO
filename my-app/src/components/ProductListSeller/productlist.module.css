@@ -1,0 +1,24 @@
+.listCover {
+  position: relative;
+  /* border: 2px solid black; */
+  top: 5%;
+  width: 86%;
+  height: 75%;
+  left: 5%;
+  padding: 1%;
+}
+
+.list {
+  position: relative;
+  /* border: 2px solid red; */
+  height: 75%;
+  width: 100%;
+  list-style: none;
+  align-items: center;
+  /* justify-content: space-around; */
+  padding: 1%;
+  display: flex;
+  justify-content: start;
+  overflow-x: scroll;
+}
+

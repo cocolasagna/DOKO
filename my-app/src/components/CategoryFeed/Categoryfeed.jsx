@@ -65,8 +65,8 @@ function Categoryfeed(props) {
     <div className={classes.categoryWrapper}>
       <Advert />
       <Categoryproductlist
-        categoryTitle='Sports'
-        category={2}
+        categoryTitle={props.title}
+        category={props.CategoryId}
         product={products}
       />
       <Endblock />
