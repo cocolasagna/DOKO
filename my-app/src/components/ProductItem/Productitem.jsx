@@ -64,6 +64,12 @@ function Productitem(props) {
   function toggleItemAddStatusHandler() {
     if (itemIsAdded) {
       cartCtx.removeItem(props.id);
+      const data = JSON.parse(localStorage.getItem('cart'))
+      const index = data.findIndex(item =>item.id === props.id)
+      if (index !== -1) {
+        data.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(data));
+      }
     } else {
       cartCtx.addItem({
         id: props.id,

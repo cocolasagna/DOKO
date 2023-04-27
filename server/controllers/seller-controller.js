@@ -28,11 +28,7 @@ const login = async (req, res, next) => {
     try {
       const user = await Seller.findByCredentials(req.body.email, req.body.password);
       const token = await user.generateAuthToken();
-     /* res.cookie("token", token, {
-        
-         httpOnly: false
-       // expires: new Date(Date.now() + 60 * 1000),
-      });*/
+  
       res.set('Set-Cookie',`auth_token=${token}`)
       res.send({ userId: user.id });
      
@@ -48,7 +44,7 @@ const login = async (req, res, next) => {
 
 const product = async(req,res)=>{
     
-   // const seller = req.query.seller
+   
     const seller = req.seller
     const sellerName = seller.name
     const sellerId = seller._id

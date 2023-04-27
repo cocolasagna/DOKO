@@ -16,15 +16,15 @@ const CartContext = createContext({
 });
 
 export function CartContextProvider(props) {
-  const [userCart, setUserCart] = useState(()=>JSON.parse(localStorage.getItem('cart')));
+  const [userCart, setUserCart] = useState(()=>JSON.parse(localStorage.getItem('cart')) || []);
   const [userWish, setUserWish] = useState([]);
 
   function addItemHandler(itemAdded) {
     setUserCart((prevUserCart) => {
      const Cart = prevUserCart.concat(itemAdded);
-     console.log(Cart)
+    
       localStorage.setItem('cart', JSON.stringify(Cart))
-      localStorage.setItem('totalcount',userCart.length + 1  )
+      //localStorage.setItem('totalcount',userCart.length + 1  )
       return Cart
     });
    
