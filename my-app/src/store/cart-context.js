@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 const CartContext = createContext({
-  itemsAdded: [],
+  itemsAdded: [], 
   totalItemsAdded: 0,
   itemsWished: [],
   totalItemsWished: 0,
@@ -16,13 +16,18 @@ const CartContext = createContext({
 });
 
 export function CartContextProvider(props) {
-  const [userCart, setUserCart] = useState([]);
+  const [userCart, setUserCart] = useState(()=>JSON.parse(localStorage.getItem('cart')));
   const [userWish, setUserWish] = useState([]);
 
   function addItemHandler(itemAdded) {
     setUserCart((prevUserCart) => {
-      return prevUserCart.concat(itemAdded);
+     const Cart = prevUserCart.concat(itemAdded);
+     console.log(Cart)
+      localStorage.setItem('cart', JSON.stringify(Cart))
+      localStorage.setItem('totalcount',userCart.length + 1  )
+      return Cart
     });
+   
   }
 
   function removerItemHandler(itemId) {

@@ -1,17 +1,23 @@
 import classes from "./productlist.module.css";
 import Productitem from "../ProductItem/Productitem";
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
 
 function Productlist(props) {
+
+
   return (
     <div className={classes.listCover}>
-      <h1>{props.title}</h1>
+      <h1>New Arrivals</h1>
       <ul className={classes.list}>
-        {props.product.map((p) => (
+        {
+        props.product.map((p) => (
           <Productitem
-            id={p.id}
-            image={p.image}
-            productName={p.productName}
-            price={p.price}
+          id={p._id}
+          image={p.image}
+          productName={p.name}
+          price={p.price}
           />
         ))}
       </ul>

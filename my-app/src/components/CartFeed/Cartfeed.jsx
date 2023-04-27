@@ -33,6 +33,7 @@ function Cartfeed() {
     content = <span className={classes.displayText}>No Items in Cart</span>;
     total = 0;
   } else {
+    
     content = <Productlist title="Mero Doko" product={cartCtx.itemsAdded} />;
     total = cartCtx.totalAmount();
   }

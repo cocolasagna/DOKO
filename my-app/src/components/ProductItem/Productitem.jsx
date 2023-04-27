@@ -55,7 +55,7 @@ function Productitem(props) {
       cartCtx.addWish({
         id: props.id,
         image: props.image,
-        productName: props.productName,
+        name: props.productName,
         price: props.price,
       });
     }
@@ -68,7 +68,7 @@ function Productitem(props) {
       cartCtx.addItem({
         id: props.id,
         image: props.image,
-        productName: props.productName,
+        name: props.productName,
         price: props.price,
       });
     }
