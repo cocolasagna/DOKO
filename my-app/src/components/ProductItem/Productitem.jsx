@@ -51,6 +51,12 @@ function Productitem(props) {
   function toggleWishAddStatusHandler() {
     if (itemisWished) {
       cartCtx.removeWish(props.id);
+      const data = JSON.parse(localStorage.getItem('Wish'))
+      const index = data.findIndex(item =>item.id === props.id)
+      if (index !== -1) {
+        data.splice(index, 1);
+        localStorage.setItem('Wish', JSON.stringify(data));
+      }
     } else {
       cartCtx.addWish({
         id: props.id,

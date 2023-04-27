@@ -17,7 +17,7 @@ const CartContext = createContext({
 
 export function CartContextProvider(props) {
   const [userCart, setUserCart] = useState(()=>JSON.parse(localStorage.getItem('cart')) || []);
-  const [userWish, setUserWish] = useState([]);
+  const [userWish, setUserWish] = useState(()=>JSON.parse(localStorage.getItem('Wish')) || []);
 
   function addItemHandler(itemAdded) {
     setUserCart((prevUserCart) => {
@@ -46,7 +46,9 @@ export function CartContextProvider(props) {
 
   function addWishHandler(itemAdded) {
     setUserWish((prevUserWish) => {
-      return prevUserWish.concat(itemAdded);
+      const Wish =  prevUserWish.concat(itemAdded);
+      localStorage.setItem('Wish',JSON.stringify(Wish))
+      return Wish
     });
   }
 
