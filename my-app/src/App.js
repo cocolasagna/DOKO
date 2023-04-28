@@ -14,17 +14,23 @@ import Aboutus from "./pages/aboutus/Aboutus";
 import Profile from "./pages/profile/Profile";
 import Notification from "./pages/notification/Notification";
 import Product from "./pages/product/Product";
+import SignupBuyer from './pages/signupBuyer/signupBuyer'
+import LoginBuyer from './pages/loginBuyer/loginBuyer'
 
 import { Route, Routes } from "react-router-dom";
 function App() {
   return (
     <Routes>
       {/*<Route exact path = '/seller/dashboard' element = {<SellerDashboard/>}/> */}
+      <Route path="/" element={<SignupBuyer />} />
+
+      <Route path="/login" element={<LoginBuyer />} />
       <Route exact path="/seller/product/new" element={<ProductForm />} />
       <Route exact path="/product/:id" element={<ProductDetail />} />
       <Route exact path="/seller/login" element={<Login />} />
       <Route exact path="/seller/signup" element={<Signup />} />
       <Route exact path="/product/update/:id" element={<Update />} />
+      
       <Route exact path="/seller/dashboard" element={<HomeSeller />} />
       <Route
         path="/category-page-electronics"
@@ -47,8 +53,7 @@ function App() {
         path="/category-page-furniture"
         element={<Category title1="Furniture" id={5} />}
       />
-      <Route path="/" element={<Signup />} />
-      <Route path="/login-page" element={<Login />} />
+      
       <Route path="/home-page" element={<Home />} />
       <Route path="/mero-doko" element={<Addtocart />} />
       <Route path="/wishlist-page" element={<Wishlist />} />

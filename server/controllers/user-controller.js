@@ -1,7 +1,8 @@
 const express = require("express");
 const User = require("../models/User");
-
-
+const Cookies = require('js-cookie')
+const jwt = require("jsonwebtoken");
+const Product = require("../models/Product");
 
 //Register an User
 const register = async (req,res)=>{
@@ -26,8 +27,12 @@ const register = async (req,res)=>{
 const login = async(req,res)=>{
     try{
         const user = await User.findByCredentials(req.body.email, req.body.password);
+        
         const token = await user.generateAuthToken()
-        res.send({user,token})
+       
+        res.set('Set-Cookie',`buyer_token=${token}`)
+        res.send({ userId: user.id });
+    
     }catch(err){
         console.log(err)
         res.status(400).send(err)
@@ -35,4 +40,18 @@ const login = async(req,res)=>{
 }
 
 
-module.exports = {register, login}
+const getallproduct = async (req,res)=>{
+    try{
+        const products = await Product.find().populate({
+            path:'seller',
+             select: 'name email '
+        })
+        res.send(products)
+    }
+    catch(err){
+        res.status(500).send(err)
+    }
+}
+
+
+module.exports = {register, login , getallproduct}
