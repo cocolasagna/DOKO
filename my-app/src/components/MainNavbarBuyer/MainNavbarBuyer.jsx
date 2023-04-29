@@ -4,15 +4,15 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-function MainNavbar(props) {
+function MainNavbarBuyer(props) {
   const handleLogout = async (req, res) => {
     try {
-      const response = await axios.post("http://localhost:5000/seller/logout" , {}, {
+      const response = await axios.post("http://localhost:5000/user/logout",{},{
         withCredentials:true
       });
-      //Cookies.remove("auth_token", { path: "/seller" });
+      //Cookies.remove("buyer_token", { path: "/" });
       console.log(response);
-      window.location.href = "/seller/login";
+      window.location.href = "/login";
     } catch (error) {
       console.log(error);
     }
@@ -56,4 +56,4 @@ function MainNavbar(props) {
   );
 }
 
-export default MainNavbar;
+export default MainNavbarBuyer;

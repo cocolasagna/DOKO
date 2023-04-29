@@ -142,4 +142,5 @@ const updateproduct = async (req, res) => {
      
     }
 
+    
 module.exports = {register ,login ,  product , addproduct, updateproduct, deleteproduct , productdetails , logout}

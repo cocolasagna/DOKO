@@ -45,6 +45,20 @@ const login = async(req,res)=>{
 }
 
 
+
+const logout = async(req,res)=>{
+    try {
+        res.clearCookie('buyer_token' ,  { path: '/' })
+       res.end()
+        console.log('Logged Out')
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+
+
 const getallproduct = async (req,res)=>{
     try{
         const products = await Product.find().populate({
@@ -59,4 +73,4 @@ const getallproduct = async (req,res)=>{
 }
 
 
-module.exports = {register, login , getallproduct}
+module.exports = {register, login , getallproduct , logout}

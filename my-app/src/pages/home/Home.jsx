@@ -1,6 +1,6 @@
 import classes from "./Home.module.css";
 import SideBar from "../../components/SideBar/Sidebar";
-import MainNavbar from "../../components/MainNavbar/MainNavbar";
+import MainNavbarBuyer from "../../components/MainNavbarBuyer/MainNavbarBuyer";
 import Homefeed from "../../components/HomeFeed/Homefeed";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -21,7 +21,7 @@ useEffect(()=>{
 },[])
   return (
     <>
-      <MainNavbar />
+      <MainNavbarBuyer />
       <div className={classes.homeContainer}>
         <SideBar name= {userName } />
         <Homefeed />
