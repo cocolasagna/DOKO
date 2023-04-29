@@ -51,12 +51,13 @@ const router = require( './routes/user-routes')
 const Productrouter = require( './routes/product-routes')
 const Sellerrouter = require('./routes/seller-routes')
 const Userrouter = require('./routes/user-routes')
-
+const Cartrouter = require('./routes/cart-routes')
 
 app.use(router)
 app.use('/product',Productrouter)
 app.use('/seller',Sellerrouter)
 app.use('/user',Userrouter)
+app.use('/cart',Cartrouter)
 
 app.use((req,res,next)=>{
     const token = req.cookies.token
