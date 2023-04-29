@@ -1,16 +1,16 @@
 const jwt = require("jsonwebtoken");
-const Seller = require("../models/Seller");
+const User = require("../models/User");
 const cookieParser = require('cookie-parser');
 
 const uuidv4 = require('uuid').v4
 const sessions ={}
 
 
-const auth = async (req, res, next) => {
+const authBuyer = async (req, res, next) => {
   try {
   
-      const authcookie = req.cookies.authBuyer_token
-    
+      const authcookie = req.cookies.buyer_token
+      console.log('authcookie',authcookie)
      
     if (!authcookie) {
       throw new Error("No token found");
@@ -36,4 +36,4 @@ const auth = async (req, res, next) => {
 
 
 
-module.exports = auth
+module.exports = authBuyer

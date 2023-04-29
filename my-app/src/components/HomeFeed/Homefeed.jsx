@@ -14,7 +14,9 @@ function Homefeed() {
 
 
 useEffect(()=>{
-   axios.get('http://localhost:5000/product/getallproduct')
+   axios.get('http://localhost:5000/product/getallproduct' ,{
+    withCredentials:true
+   })
    .then(res=>{
     setProduct(res.data)
    })

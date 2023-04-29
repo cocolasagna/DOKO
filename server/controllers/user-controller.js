@@ -29,10 +29,15 @@ const login = async(req,res)=>{
         const user = await User.findByCredentials(req.body.email, req.body.password);
         
         const token = await user.generateAuthToken()
-       
-        res.set('Set-Cookie',`buyer_token=${token}`)
-        res.send({ userId: user.id });
     
+     //  res.set('Set-Cookie',`buyer_token=${token}`)
+     res.cookie('buyer_token', token , {
+        httpOnly: true,
+        secure:false,
+        maxage:60000000
+     })
+        res.send({ userId: user.id });
+        
     }catch(err){
         console.log(err)
         res.status(400).send(err)

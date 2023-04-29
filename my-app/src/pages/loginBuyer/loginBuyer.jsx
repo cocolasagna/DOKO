@@ -15,7 +15,7 @@ function Login() {
 
    
     try {
-      const response = await axios.post("http://localhost:5000/user/login", {
+      await axios.post("http://localhost:5000/user/login", {
         email,
         password,
       },
@@ -24,12 +24,15 @@ function Login() {
         withCredentials:true
       }
    
-      );
+      ).then((response)=>{
+        console.log('response',response)
+        window.location.href = "/home-page";
+      });
 
   
 
       // Redirect the user to the home page or dashboard
-      window.location.href = "/home-page";
+     
     } catch (error) {
       console.error(error);
       alert("Failed to login");
