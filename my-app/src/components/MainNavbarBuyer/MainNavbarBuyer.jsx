@@ -33,7 +33,7 @@ function MainNavbarBuyer(props) {
           </ul>
           <ul>
             <li>
-              <button onClick={handleLogout}>Logout</button>
+              <span onClick={handleLogout}>Logout</span>
             </li>
           </ul>
           <ul>
