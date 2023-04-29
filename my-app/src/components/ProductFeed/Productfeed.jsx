@@ -78,8 +78,9 @@ function Productfeed() {
             <div className={classes.itemInfoUp}>
               <h1>{productSelected.productName}</h1>
               <span className={classes.description}>
-                {" "}
-                Very Good Mobile Phone
+              <h1>{productSelected.description}</h1>
+                {/* {" "}
+                Very Good Mobile Phone */}
               </span>
             </div>
             <div className={classes.itemInfoDown}>

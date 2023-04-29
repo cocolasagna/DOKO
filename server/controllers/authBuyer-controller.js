@@ -10,7 +10,7 @@ const authBuyer = async (req, res, next) => {
   try {
   
       const authcookie = req.cookies.buyer_token
-      console.log('authcookie',authcookie)
+    
      
     if (!authcookie) {
       throw new Error("No token found");

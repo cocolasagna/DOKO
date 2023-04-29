@@ -18,6 +18,7 @@ function Productlist(props) {
           image={p.image}
           productName={p.name}
           price={p.price}
+          description = {p.description}
           />
         ))}
       </ul>

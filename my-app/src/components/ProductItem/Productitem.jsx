@@ -22,9 +22,9 @@ function Productitem(props) {
       image: props.image,
       productName: props.productName,
       price: props.price,
+      description : props.description
     };
 
-    console.log(productCtx.productClicked);
   }
 
   function notificationAccept() {

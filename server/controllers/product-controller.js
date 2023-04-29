@@ -26,6 +26,8 @@ const getOneproduct = async(req,res)=>{
             path:'seller',
              select: 'name email '
         })
+        const    pd = product.description
+        console.log('product',pd)
         if(!product){
             return res.status(404).send()
         }
