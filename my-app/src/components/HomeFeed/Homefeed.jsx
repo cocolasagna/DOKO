@@ -18,7 +18,7 @@ useEffect(()=>{
     withCredentials:true
    })
    .then(res=>{
-    setProduct(res.data)
+    setProduct(res.data.products)
    })
    .catch(err=>{
       console.log(err)

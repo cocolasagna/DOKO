@@ -23,7 +23,7 @@ function Sidebar(props) {
 
           <div className={classes.nameWrapper}>
             <h1>{props.name}</h1>
-            <span>{props.id}</span>
+         
           </div>
         </div>
       </Link>
