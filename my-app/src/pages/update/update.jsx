@@ -77,7 +77,7 @@ function UpdateForm() {
   
               <div className='formBlockDesc'>
                 <div className="ProductForm">
-                  <h1 className='ProductTitle'>Create Product</h1>
+                  <h1 className='ProductTitle'>Update Product</h1>
                   <form className='product-form' onSubmit={handleSubmit}>
                     <div className="product-box">
                       <div className="product-wrapper">
