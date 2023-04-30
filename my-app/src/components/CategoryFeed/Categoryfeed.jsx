@@ -61,6 +61,8 @@ const products = [
 ];
 
 function Categoryfeed(props) {
+
+
   return (
     <div className={classes.categoryWrapper}>
       <Advert />

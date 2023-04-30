@@ -27,11 +27,7 @@ function SidebarSeller(props) {
         </div>
         <hr />
 
-        <div className={classes.optionCover}>
-          <ShoppingBasketOutlinedIcon className={classes.icon} />
-          <span>Mero Doko</span>
-        </div>
-        <hr />
+       
 
         <div className={classes.optionCover}>
           <NotificationsNoneOutlinedIcon className={classes.icon} />
