@@ -10,6 +10,7 @@ import RemoveShoppingCartOutlinedIcon from "@mui/icons-material/RemoveShoppingCa
 import DoNotDisturbOnOutlinedIcon from "@mui/icons-material/DoNotDisturbOnOutlined";
 
 function Productfeed() {
+  const PF = 'http://localhost:5000/images/'
   const cartCtx = useContext(CartContext);
   const notiCtx = useContext(NotificationContext);
   const productCtx = useContext(ProductContext);
@@ -69,7 +70,7 @@ function Productfeed() {
       <div className={classes.productWrapper}>
         <div className={classes.imageContent}>
           <div className={classes.imageWrapper}>
-            <img src={productSelected.image} alt="" />
+            <img src={PF+productSelected.image} alt="" />
           </div>
         </div>
 

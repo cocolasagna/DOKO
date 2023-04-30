@@ -19,6 +19,7 @@ function Productitem(props) {
 
 
   function productPageHandler() {
+ 
     productCtx.productClicked = {
       id: props.id,
       image: props.image,
