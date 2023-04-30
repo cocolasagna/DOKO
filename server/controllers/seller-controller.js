@@ -66,28 +66,32 @@ const addproduct = async(req,res)=>{
     const Seller = req.seller
     const sellerId = Seller.id
     console.log("seller:", sellerId)
-    const product = new Product({
-        name:req.body.name,
-        description : req.body.description, 
-        price:req.body.price,
-        seller: sellerId
-    }
-    )
-
-    try{
-        await product.save()
-        res.status(201).send(product)
-        console.log('product added')
     
+    const product = new Product({
+      name:req.body.name,
+      description : req.body.description, 
+      price:req.body.price,
+      image :req.body.image,
+      quantity:req.body.quantity,
+      bid:req.body.bid,
+      category:req.body.category,
+      seller: sellerId
+    });
+  
+    
+  
+    try {
+      await product.save();
+      res.status(201).send(product);
+     
+    } catch(err) {
+      res.status(400).send(err);
     }
-    catch(err){
-        res.status(400).send(err)
-    }
-}
+  };
 
 const updateproduct = async (req, res) => {
     const updates = Object.keys(req.body);
-    const allowedUpdates = ["name", "description", "price", "image"];
+    const allowedUpdates = ["name", "description", "price", "image" , "quantity", "category", "bid"];
     const isValidOperation = updates.every((update) =>
     allowedUpdates.includes(update)
     );

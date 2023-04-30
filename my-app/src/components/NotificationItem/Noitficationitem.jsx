@@ -6,12 +6,12 @@ import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 
 function Notificationitem(props) {
   const notiCtx = useContext(NotificationContext);
-
+  const PF = 'http://localhost:5000/images/'
   return (
     <li>
       <div className={classes.notificationCover}>
         <div className={classes.startContent}>
-          <img src={props.image} alt="" />
+          <img src={PF+props.image} alt="" />
         </div>
         <div className={classes.midContent}>
           <div className={classes.infoUp}>

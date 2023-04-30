@@ -15,6 +15,8 @@ function Productitem(props) {
   const productCtx = useContext(ProductContext);
   const itemIsAdded = cartCtx.itemInCart(props.id);
   const itemisWished = cartCtx.itemInWish(props.id);
+ const PF = 'http://localhost:5000/images/'
+
 
   function productPageHandler() {
     productCtx.productClicked = {
@@ -91,7 +93,7 @@ function Productitem(props) {
       <li>
         <Link to="/product-page">
           <div className={classes.itemImage} onClick={productPageHandler}>
-            <img src={props.image} alt="" />
+            <img src={PF+props.image} alt="" />
           </div>
         </Link>
 

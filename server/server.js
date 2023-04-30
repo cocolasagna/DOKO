@@ -28,24 +28,22 @@ app.use(express.urlencoded({extended: false}))
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=> {
-        cb(null,'./uploads');
+        cb(null,"public/images");
     },
     filename: (req,file,cb) => {
-        cb(null,`${Date.now()}-${file.originalname}`)
+        cb(null, req.body.name)
     }
 
 });
 
-const upload = multer({storage})
-
-app.post("/upload", upload.single("image") , (req,res) =>{
+const upload = multer({storage});
+app.post("/upload", upload.single("file") , (req,res) =>{
     try{
        return res.status(200).json("File uploaded successfully")
     }catch(err){
         console.log(err)
     }
 })
-
 
 const router = require( './routes/user-routes')
 const Productrouter = require( './routes/product-routes')
@@ -59,11 +57,7 @@ app.use('/seller',Sellerrouter)
 app.use('/user',Userrouter)
 app.use('/cart',Cartrouter)
 
-app.use((req,res,next)=>{
-    const token = req.cookies.token
-    console.log('App',token)
-    next()
-})
+
 
 
 

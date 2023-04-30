@@ -18,8 +18,21 @@ const productSchema = new mongoose.Schema ({
         ref: "Seller",
     },
     image: {
+        
         type:String, 
-      //  required: true,
+        required: true,
+    } , 
+    quantity:{
+        type: Number,
+        required: true,
+    }, 
+    bid:{
+        type:Number,
+        required:true,
+    },
+    category:{
+        type:String,
+        required:true,
     }
 
 })

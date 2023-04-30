@@ -3,9 +3,11 @@ import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlin
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useState } from "react";
 
 function Productitem(props) {
-  
+  const PF = 'http://localhost:5000/images/'
+  console.log('image', PF+props.image)
   const handleClick = async(e)=>{
         const id = props.Id
         e.preventDefault()
@@ -24,11 +26,13 @@ function Productitem(props) {
   
     <div className={classes.itemCover}>
         <Link to={`/product/${props.Id}`}>
+           
       <li>
         <div className={classes.itemImage}>
-          <img src={props.image} alt="" />
+       
+          <img src={PF+props.image} alt="no image" />
         </div>
-
+     
         <div className={classes.itemInfo}>
           <div className={classes.infoUp}>
             <h2>{props.productName}</h2>
