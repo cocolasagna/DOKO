@@ -1,7 +1,7 @@
 const express = require("express");
 const Product = require("../models/Product");
 const User = require('../models/User')
-
+const escapeRegExp = require('lodash/escapeRegExp');
 
 
 const getallproduct = async (req,res)=>{
@@ -22,12 +22,14 @@ const getallproduct = async (req,res)=>{
 
 const getOneproduct = async(req,res)=>{
     try {
-        const product = await Product.findById(req.params.id).populate({
+        const query = req.params.searchProduct
+        const escapedQuery = escapeRegExp(query).replace(/\s/g, '\\s*');
+  
+        const product = await Product.find({ name: { $regex: escapedQuery, $options: 'i' } }).populate({
             path:'seller',
              select: 'name email '
         })
-        const    pd = product.description
-        console.log('product',pd)
+       
         if(!product){
             return res.status(404).send()
         }

@@ -7,6 +7,6 @@ const Productrouter = express.Router()
 
 
 Productrouter.get('/getallproduct', authBuyer, controls.getallproduct)
-Productrouter.get('/:id', controls.getOneproduct)
+Productrouter.get('/:searchProduct' ,authBuyer, controls.getOneproduct)
 
 module.exports = Productrouter; 

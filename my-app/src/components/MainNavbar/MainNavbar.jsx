@@ -2,9 +2,28 @@ import classes from "./mainnavbar.module.css";
 import { Link } from "react-router-dom";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import axios from "axios";
-import Cookies from "js-cookie";
+import { useRef , useContext ,useState } from "react";
 
 function MainNavbar(props) {
+  const [query, setQuery] = useState('');
+  const [products, setProducts] = useState([]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // Make an API request to the search endpoint with the search query as a parameter
+      const response = await axios.get(`http://localhost:5000/product/${query}` , {
+        withCredentials:true
+      });
+      // Set the matching products returned by the server
+      setProducts(response.data);
+     
+      console.log('product', response.data)
+      
+    } catch (error) {
+      console.error(error);
+    }
+  };
   const handleLogout = async (req, res) => {
     try {
       const response = await axios.post("http://localhost:5000/seller/logout" , {}, {
@@ -46,9 +65,10 @@ function MainNavbar(props) {
 
       <div className={classes.navbarright}>
         <div className={classes.searchbar}>
-          <form>
+        <form onSubmit={handleSubmit}>
             <SearchOutlinedIcon className={classes.icon} />
-            <input type="text" placeholder="Search for Items, Categories" />
+            <input type="text" value = {query} onChange={(e) => setQuery(e.target.value)} placeholder="Search for Items, Categories" />
+           
           </form>
         </div>
       </div>
