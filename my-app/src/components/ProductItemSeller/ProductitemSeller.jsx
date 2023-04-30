@@ -7,7 +7,7 @@ import { useState } from "react";
 
 function Productitem(props) {
   const PF = 'http://localhost:5000/images/'
-  console.log('image', PF+props.image)
+
   const handleClick = async(e)=>{
         const id = props.Id
         e.preventDefault()
