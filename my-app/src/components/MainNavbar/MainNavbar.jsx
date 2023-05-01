@@ -30,7 +30,7 @@ function MainNavbar(props) {
         withCredentials:true
       });
       //Cookies.remove("auth_token", { path: "/seller" });
-      console.log(response);
+     localStorage.clear()
       window.location.href = "/seller/login";
     } catch (error) {
       console.log(error);

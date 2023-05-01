@@ -35,7 +35,7 @@ function MainNavbarBuyer(props) {
         withCredentials:true
       });
       //Cookies.remove("buyer_token", { path: "/" });
-      
+      localStorage.clear()
       window.location.href = "/login";
     } catch (error) {
       console.log(error);
