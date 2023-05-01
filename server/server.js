@@ -51,6 +51,7 @@ const Sellerrouter = require('./routes/seller-routes')
 const Userrouter = require('./routes/user-routes')
 const Cartrouter = require('./routes/cart-routes')
 const Orderrouter = require('./routes/order-routes')
+const Buyerbidrouter = require("./routes/buyerbid-routes")
 
 app.use(router)
 app.use('/product',Productrouter)
@@ -58,8 +59,7 @@ app.use('/seller',Sellerrouter)
 app.use('/user',Userrouter)
 app.use('/cart',Cartrouter)
 app.use('/order',Orderrouter)
-
-
+app.use('/buyerbid', Buyerbidrouter)
 
 
 mongoose.connect(
