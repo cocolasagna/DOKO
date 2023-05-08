@@ -22,7 +22,7 @@ function Cartfeed() {
 
     historyCtx.totalItemsBought = historyCtx.totalItemsBought + 1;
 
-    // console.log(historyCtx.itemsbought);
+    console.log(historyCtx.itemsbought);
 
     // cartCtx.cartCheckout();
     // total = 0; // Not sure if it works need to test with real Database.
@@ -33,8 +33,7 @@ function Cartfeed() {
     content = <span className={classes.displayText}>No Items in Cart</span>;
     total = 0;
   } else {
-    
-    content = <Productlist title="Mero Doko" product={cartCtx.itemsAdded} />;
+    content = <Productlist title="Mero Doko" data={cartCtx.itemsAdded} />;
     total = cartCtx.totalAmount();
   }
 

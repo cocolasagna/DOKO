@@ -42,7 +42,7 @@ function Productlist(props) {
             
               id={p.id}
               image={p.image}
-              productName={p.productName}
+              productName={p.name}
               price={p.price}
             />
           ))}
