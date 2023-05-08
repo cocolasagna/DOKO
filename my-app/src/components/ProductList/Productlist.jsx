@@ -39,6 +39,7 @@ function Productlist(props) {
         <ul className={classes.list}>
           {currentItems.map((p) => (
             <Productitem
+            
               id={p.id}
               image={p.image}
               productName={p.productName}
