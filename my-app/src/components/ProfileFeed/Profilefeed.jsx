@@ -13,7 +13,7 @@ function Profilefeed() {
     content = <span className={classes.displayText}>No Items Bought Yet.</span>;
   } else {
     content = (
-      <Productlist title="Recent Orders" product={historyCtx.itemsbought} />
+      <Productlist title="Recent Orders" data={historyCtx.itemsbought} />
     );
   }
 

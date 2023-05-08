@@ -1,6 +1,6 @@
 import classes from "./profile.module.css";
 import MainNavbar from "../../components/MainNavbar/MainNavbar";
-import Sidebar from "../../components/SideBarSeller/SidebarSeller";
+import Sidebar from "../../components/SideBar/Sidebar";
 import Profilefeed from "../../components/ProfileFeed/Profilefeed";
 
 function Profile() {

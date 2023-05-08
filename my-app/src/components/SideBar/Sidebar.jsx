@@ -23,7 +23,6 @@ function Sidebar(props) {
 
           <div className={classes.nameWrapper}>
             <h1>{props.name}</h1>
-         
           </div>
         </div>
       </Link>
@@ -56,8 +55,10 @@ function Sidebar(props) {
         <hr />
 
         <div className={classes.optionCover}>
-          <SettingsOutlinedIcon className={classes.icon} />
-          <span>Settings</span>
+          <Link to="/settings-page">
+            <SettingsOutlinedIcon className={classes.icon} />
+            <span>Settings</span>
+          </Link>
         </div>
         <hr />
 

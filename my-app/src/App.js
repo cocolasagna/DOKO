@@ -1,4 +1,3 @@
-
 import React from "react";
 import Home from "./pages/home/Home";
 
@@ -15,9 +14,12 @@ import Aboutus from "./pages/aboutus/Aboutus";
 import Profile from "./pages/profile/Profile";
 import Notification from "./pages/notification/Notification";
 import Product from "./pages/product/Product";
-import SignupBuyer from './pages/signupBuyer/signupBuyer'
-import LoginBuyer from './pages/loginBuyer/loginBuyer'
-
+import SignupBuyer from "./pages/signupBuyer/signupBuyer";
+import LoginBuyer from "./pages/loginBuyer/loginBuyer";
+import Settings from "./pages/settings/Settings";
+import Changepassword from "./pages/settings/Changepassword";
+import Search from "./pages/search/Search";
+import Updateprofile from "./pages/settings/Updateprofile";
 import { Route, Routes } from "react-router-dom";
 function App() {
   return (
@@ -31,7 +33,10 @@ function App() {
       <Route exact path="/seller/login" element={<Login />} />
       <Route exact path="/seller/signup" element={<Signup />} />
       <Route exact path="/product/update/:id" element={<Update />} />
-      
+      <Route path="/settings-page" element={<Settings />} />
+      <Route path="/change-pw" element={<Changepassword />} />
+      <Route path="/update-profile" element={<Updateprofile />} />
+      <Route path="/search-page" element={<Search />} />
       <Route exact path="/seller/dashboard" element={<HomeSeller />} />
       <Route
         path="/category-page-electronics"
@@ -54,7 +59,7 @@ function App() {
         path="/category-page-furniture"
         element={<Category title1="Furniture" id={5} />}
       />
-      
+
       <Route path="/home-page" element={<Home />} />
       <Route path="/mero-doko" element={<Addtocart />} />
       <Route path="/wishlist-page" element={<Wishlist />} />

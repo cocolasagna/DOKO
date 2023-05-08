@@ -12,7 +12,7 @@ function Wishlistfeed() {
   if (cartCtx.totalItemsWished === 0) {
     content = <span className={classes.displayText}>No Items Wished yet.</span>;
   } else {
-    content = <Productlist title="Wish List" product={cartCtx.itemsWished} />;
+    content = <Productlist title="Wish List" data={cartCtx.itemsWished} />;
   }
 
   return (

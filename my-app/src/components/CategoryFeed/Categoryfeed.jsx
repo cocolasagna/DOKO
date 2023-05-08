@@ -69,7 +69,7 @@ function Categoryfeed(props) {
       <Categoryproductlist
         categoryTitle={props.title}
         category={props.CategoryId}
-        product={products}
+        data={products}
       />
       <Endblock />
     </div>
