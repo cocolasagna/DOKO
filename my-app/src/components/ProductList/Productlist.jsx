@@ -45,7 +45,7 @@ function Productlist(props) {
               productName={p.name}
               price={p.price}
               description = {p.description}
-              seller = {p.seller._id}
+             seller = {p.seller._id}
             />
           ))}
         </ul>
