@@ -16,7 +16,7 @@ function Cartfeed() {
     historyCtx.itemsbought = cartCtx.itemsAdded.map((item) => ({
       id: item.id,
       image: item.image,
-      productName: item.name,
+      productName: item.productName,
       price: item.price,
     }));
 
