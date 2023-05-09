@@ -4,14 +4,20 @@ const BuyerBid = require("../models/BuyerBid")
 
 const addBid = async(req,res)=>{
     
-        //const bidData = await BuyerBid.findOne({user:req.body.user})
+        const User = req.user
+        const userId = User.id
+        console.log("user:", userId)
+
+
         const newBid = new BuyerBid({
-            user: req.body.user,
-            bids: req.body.bids
+            user: userId,
+            bidAmount: req.body.bidAmount , 
+            product : req.body.product , 
+            seller : req.body.seller
         })
     try{
         const bidData = await newBid.save()
-        return res.status(401).send(bidData)
+        return res.status(201).send(bidData)
     }
     catch(err){
         console.log(err);

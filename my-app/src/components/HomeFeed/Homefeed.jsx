@@ -17,6 +17,7 @@ function Homefeed() {
       })
       .then((res) => {
         setProduct(res.data.products);
+       
       })
       .catch((err) => {
         console.log(err);

@@ -25,7 +25,8 @@ function Productitem(props) {
       image: props.image,
       productName: props.productName,
       price: props.price,
-      description : props.description
+      description : props.description,
+      seller : props.seller
     };
 
   }
@@ -64,7 +65,7 @@ function Productitem(props) {
       cartCtx.addWish({
         id: props.id,
         image: props.image,
-        name: props.productName,
+        productName: props.productName,
         price: props.price,
       });
     }
@@ -83,7 +84,7 @@ function Productitem(props) {
       cartCtx.addItem({
         id: props.id,
         image: props.image,
-        name: props.productName,
+        productName: props.productName,
         price: props.price,
       });
     }
