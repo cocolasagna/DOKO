@@ -25,7 +25,8 @@ function Productitem(props) {
       image: props.image,
       productName: props.productName,
       price: props.price,
-      description : props.description
+      description : props.description,
+      seller : props.seller
     };
 
   }
@@ -66,6 +67,7 @@ function Productitem(props) {
         image: props.image,
         name: props.productName,
         price: props.price,
+        seller : props.seller
       });
     }
   }
@@ -85,6 +87,8 @@ function Productitem(props) {
         image: props.image,
         name: props.productName,
         price: props.price,
+        seller :props.seller
+      
       });
     }
   }

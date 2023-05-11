@@ -11,7 +11,7 @@ const getallproduct = async (req,res)=>{
     try{
         const products = await Product.find().populate({
             path:'seller',
-             select: 'name email '
+             select: ' id name email '
         })
         res.send({products, userName})
     }

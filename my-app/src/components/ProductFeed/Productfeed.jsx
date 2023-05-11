@@ -9,7 +9,45 @@ import NotificationContext from "../../store/notification-context";
 import RemoveShoppingCartOutlinedIcon from "@mui/icons-material/RemoveShoppingCartOutlined";
 import DoNotDisturbOnOutlinedIcon from "@mui/icons-material/DoNotDisturbOnOutlined";
 
+import { useRef } from "react";
+import { useState } from "react";
+import axios from "axios";
+
 function Productfeed() {
+  //const [newBid, setNewBid] = useState("")
+  
+  const bidAmount = useRef()
+ 
+ 
+
+
+  const handleOnEnter = async(e) =>{
+   
+    e.preventDefault()
+
+
+    
+    
+   const  newBid = {
+      bidAmount :bidAmount.current.value,
+      product: productSelected.id , 
+      seller : productSelected.seller
+    }
+
+    console.log('bid', newBid)
+    try {
+    
+      const response = await axios.post("http://localhost:5000/buyerbid/addbid", newBid, {
+        withCredentials:true
+      });
+      console.log(response.data);
+      window.location.href = "/home-page"
+    } catch (error) {
+      console.log(error);
+    }
+    
+  }
+
   const PF = 'http://localhost:5000/images/'
   const cartCtx = useContext(CartContext);
   const notiCtx = useContext(NotificationContext);
@@ -115,10 +153,13 @@ function Productfeed() {
               </button>
             </div>
           </div>
-          <div className={classes.infoMid}>
+          <form onSubmit={handleOnEnter}>
+          <div className={classes.infoMid} >
             <span>Bid Amount</span>
-            <input type="integer" placeholder="Enter Bid Amount" />
+            <input type="integer" placeholder="Enter Bid Amount" ref={bidAmount}  />
+            <button type="submit">Submit</button>
           </div>
+          </form>
           <div className={classes.infoDown}></div>
         </div>
       </div>
