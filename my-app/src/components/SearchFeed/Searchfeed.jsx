@@ -34,18 +34,15 @@ const product = [
   },
 ];
 
-function Searchfeed(products) {
-  console.log('search', products)
-  // const [searchData, setSearchData] = useState([]);
+function Searchfeed(props) {
+  //const [searchData, setSearchData] = useState([]);
 
-  // useEffect(() => {
-  //   setSearchData(products);
-  // }, []);
+ 
 
   return (
     <div className={classes.searchWrapper}>
       <Advert />
-      <Productlist title="Search Contents" data={product} />
+      <Productlist title="Search Contents" data={props.products} />
       <Endblock />
     </div>
   );
