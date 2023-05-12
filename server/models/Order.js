@@ -4,10 +4,10 @@ const orderSchema = new mongoose.Schema({
     user : {
         type: mongoose.Schema.Types.ObjectId, 
         ref:'users', 
-        required: true
+        
     },
-    orderItems:[
-    {product: {
+    productItems:[
+    {id: {
         type: mongoose.Schema.Types.ObjectId,
         ref:'products', 
         required:true

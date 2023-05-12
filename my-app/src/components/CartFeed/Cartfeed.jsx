@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import classes from "./cartfeed.module.css";
 import Advert from "../Advert/Advert";
 import Endblock from "../EndBlock/Endblock";
@@ -6,20 +6,53 @@ import CartContext from "../../store/cart-context";
 import HistoryContext from "../../store/history-context";
 import Productlist from "../ProductList/Productlist";
 
+import axios from "axios";
 function Cartfeed() {
   const cartCtx = useContext(CartContext);
   const historyCtx = useContext(HistoryContext);
   let total;
   let content;
 
+  const[order , setOrder] = useState([])
+
+
+  const placeOrder = async(e) =>{
+  
+
+    e.preventDefault()
+   
+      const  newOrder = {
+          productItems : cartCtx.itemsAdded
+    };
+    const newOrders = [...order , newOrder]
+    setOrder(newOrders)
+    console.log('Order', newOrders)
+    try {
+    
+      const response = await axios.post("http://localhost:5000/order/newOrder", newOrder, {
+        withCredentials:true
+      });
+      console.log(response.data);
+      
+      localStorage.removeItem("cart")
+      window.location.href = "/profile-page"
+    } catch (error) {
+      console.log(error);
+    }
+  }
   function checkoutHandler() {
+    
+    
+  
     historyCtx.itemsbought = cartCtx.itemsAdded.map((item) => ({
       id: item.id,
       image: item.image,
       name: item.name,
       price: item.price,
+      seller : item.seller,
     }));
 
+    console.log("items bought",historyCtx)
     historyCtx.totalItemsBought = historyCtx.totalItemsBought + 1;
 
     console.log(historyCtx.itemsbought);
@@ -33,7 +66,9 @@ function Cartfeed() {
     content = <span className={classes.displayText}>No Items in Cart</span>;
     total = 0;
   } else {
+    {console.log(cartCtx.itemsAdded)}
     content = <Productlist title="Mero Doko" data={cartCtx.itemsAdded} />;
+   
     total = cartCtx.totalAmount();
   }
 
@@ -43,9 +78,11 @@ function Cartfeed() {
       <div className={classes.content}>{content}</div>
       <div className={classes.checkoutInfo}>
         <span>total Amount = ${total} </span>
-        <button className={classes.checkoutBtn} onClick={checkoutHandler}>
+        <form onSubmit={placeOrder}>
+        <button  type="submit" className={classes.checkoutBtn} onClick={checkoutHandler} >
           CheckOut
         </button>
+        </form>
       </div>
 
       <Endblock />

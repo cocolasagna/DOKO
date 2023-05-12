@@ -1,5 +1,5 @@
 import classes from "./productfeed.module.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Endblock from "../EndBlock/Endblock";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
@@ -14,8 +14,7 @@ import { useState } from "react";
 import axios from "axios";
 
 function Productfeed() {
-  //const [newBid, setNewBid] = useState("")
-  
+
   const bidAmount = useRef()
  
  
@@ -31,7 +30,8 @@ function Productfeed() {
    const  newBid = {
       bidAmount :bidAmount.current.value,
       product: productSelected.id , 
-      seller : productSelected.seller
+      seller : productSelected.seller,
+      price : productSelected.price
     }
 
     console.log('bid', newBid)

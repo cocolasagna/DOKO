@@ -13,7 +13,8 @@ const addBid = async(req,res)=>{
             user: userId,
             bidAmount: req.body.bidAmount , 
             product : req.body.product , 
-            seller : req.body.seller
+            seller : req.body.seller,
+            price : req.body.price
         })
     try{
         const bidData = await newBid.save()

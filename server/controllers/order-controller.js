@@ -3,13 +3,18 @@ const express = require('express')
 const Order = require("../models/Order")
 
 const placeOrder = async(req,res)=>{
-    const newOrder = new Order({
-        user : req.body.user,
-        orderItems:req.body.orderItems
+
+        const User = req.user
+        const userId = User.id
+        console.log("user:", userId)
+        
+        const newOrder = new Order({
+        user : userId,
+        productItems:req.body.productItems
     });
     try{  
         const OrderData = await newOrder.save()
-        return res.status(401).send(OrderData)
+        return res.status(201).send(OrderData)
         
     }catch(err){
         console.log(err);

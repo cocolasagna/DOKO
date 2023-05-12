@@ -4,7 +4,7 @@ import Endblock from "../EndBlock/Endblock";
 import Productlist from "../ProductList/Productlist";
 import { useState, useEffect } from "react";
 
-const products = [
+const product = [
   // ELectronics = 1  Sports = 2 Food =3 Clothing = 4 Furniture = 5
   {
     id: "p1",
@@ -34,17 +34,18 @@ const products = [
   },
 ];
 
-function Searchfeed() {
-  const [searchData, setSearchData] = useState([]);
+function Searchfeed(products) {
+  console.log('search', products)
+  // const [searchData, setSearchData] = useState([]);
 
-  useEffect(() => {
-    setSearchData(products);
-  }, []);
+  // useEffect(() => {
+  //   setSearchData(products);
+  // }, []);
 
   return (
     <div className={classes.searchWrapper}>
       <Advert />
-      <Productlist title="Search Contents" data={searchData} />
+      <Productlist title="Search Contents" data={product} />
       <Endblock />
     </div>
   );

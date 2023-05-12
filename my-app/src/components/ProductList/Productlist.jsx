@@ -35,7 +35,7 @@ function Productlist(props) {
 
   return (
     <>
-      <div className={classes.listCover}>
+      <div className={classes.listCover} key = {props.id}>
         <h1>{props.title}</h1>
         <ul className={classes.list}>
           {currentItems.map((p) => (

@@ -19,7 +19,8 @@ function Productitem(props) {
 
 
   function productPageHandler() {
- 
+    
+    
     productCtx.productClicked = {
       id: props.id,
       image: props.image,
@@ -28,7 +29,7 @@ function Productitem(props) {
       description : props.description,
       seller : props.seller
     };
-
+    console.log('product', productCtx.productClicked)
   }
 
   function notificationAccept() {
@@ -67,6 +68,7 @@ function Productitem(props) {
         image: props.image,
         name: props.productName,
         price: props.price,
+        description:props.description,
         seller : props.seller
       });
     }
@@ -87,6 +89,7 @@ function Productitem(props) {
         image: props.image,
         name: props.productName,
         price: props.price,
+        description:props.description,
         seller :props.seller
       
       });
@@ -95,7 +98,7 @@ function Productitem(props) {
 
   return (
     <div className={classes.itemCover}>
-      <li>
+      <li  key = {props.id}>
         <Link to="/product-page">
           <div className={classes.itemImage} onClick={productPageHandler}>
             <img src={PF+props.image} alt="" />

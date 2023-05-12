@@ -8,21 +8,26 @@ const BuyerBidSchema = new mongoose.Schema({
     },
   
         
-            product: {
+    product: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref:'products', 
                 required:true
-            },
+    },
             
-            bidAmount:{
+    bidAmount:{
                 type:Number,
                 required:true
-            }, 
-            seller :{
+    }, 
+    seller :{
                 type :mongoose.Schema.Types.ObjectId,
                 ref:"Seller", 
               required:true
-            }
+    },
+    price:{
+        type:Number,
+        required: true
+    }
+
     
     
 })
