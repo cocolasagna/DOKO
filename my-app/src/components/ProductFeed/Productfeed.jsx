@@ -157,7 +157,7 @@ function Productfeed() {
           <div className={classes.infoMid} >
             <span>Bid Amount</span>
             <input type="integer" placeholder="Enter Bid Amount" ref={bidAmount}  />
-            <button type="submit">Submit</button>
+            <button className ={classes.submitBtn} type="submit">Submit</button>
           </div>
           </form>
           <div className={classes.infoDown}></div>
