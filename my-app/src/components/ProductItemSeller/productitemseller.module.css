@@ -76,7 +76,7 @@
   bottom: 5px;
 }
 
-.addBtn {
+.deleteBtn {
   position: relative;
   left: 15%;
   bottom: 5px;
@@ -88,7 +88,7 @@
   background-color: #e96e494a;
 }
 
-.bargainBtn {
+.updateBtn {
   position: relative;
   left: 4%;
   bottom: 5px;
