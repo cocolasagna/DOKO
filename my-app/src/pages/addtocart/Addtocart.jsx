@@ -2,7 +2,7 @@ import classes from "./addtocart.module.css";
 import SideBar from "../../components/SideBar/Sidebar";
 import MainNavbarBuyer from "../../components/MainNavbarBuyer/MainNavbarBuyer";
 import Cartfeed from "../../components/CartFeed/Cartfeed";
-
+//this is add to carts
 function Addtocart() {
   return (
     <>

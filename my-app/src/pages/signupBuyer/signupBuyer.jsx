@@ -11,55 +11,52 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function Signup() {
-  const [email, setEmail] = useState('');
-  const [password , setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [phonenumber, setPhonenumber] = useState();
-  const [name , setName] = useState('');
-  
-  const handleSubmit = async(event)=>{
+  const [name, setName] = useState("");
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    try{
-      const response = await axios.post('http://localhost:5000/user/signup',{
-        name, 
+    try {
+      const response = await axios.post("http://localhost:5000/user/signup", {
+        name,
         email,
-        password, 
-        phonenumber
-
-      })
-      window.location.href = '/login'
-    }catch(err){
-      console.log(err)
+        password,
+        phonenumber,
+      });
+      window.location.href = "/login";
+    } catch (err) {
+      console.log(err);
     }
-  }
-
-
+  };
 
   return (
     <>
       <Navbar />
-     
+
       <div className="body">
         <div className="background">
           <div className="center-block">
             <div className="center-block-left">
               <img
                 className="loginImage"
-                src="../public/images/dokologovertical.png"
+                src="./public/images/dokologovertical.png"
                 alt=""
               />
             </div>
-  
+
             <div className="center-block-right">
               <div className="signup-form">
                 <h1 className="signup-title">Sign Up</h1>
-                <form onSubmit = {handleSubmit} className="input-form">
+                <form onSubmit={handleSubmit} className="input-form">
                   <div className="input-box">
                     <div className="inner-wrapper">
                       <AccountCircleIconOutlined className="icon" />
                       <input
                         type="text"
-                        value = {name}
-                        onChange={(event)=>setName(event.target.value)}
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
                         className="input-value"
                         placeholder="Enter Full Name"
                       />
@@ -68,10 +65,10 @@ function Signup() {
                   <div className="input-box">
                     <div className="inner-wrapper">
                       <EmailOutlinedIcon className="icon" />
-                      <input 
+                      <input
                         type="email"
-                        value = {email}
-                        onChange={(event)=>setEmail(event.target.value)}
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
                         className="input-value"
                         placeholder="Enter E-mail Address"
                       />
@@ -82,8 +79,8 @@ function Signup() {
                       <LocalPhoneOutlinedIcon className="icon" />
                       <input
                         type="number"
-                        value = {phonenumber}
-                        onChange={(event)=>setPhonenumber(event.target.value)}
+                        value={phonenumber}
+                        onChange={(event) => setPhonenumber(event.target.value)}
                         className="input-value"
                         placeholder="Enter Phone Number"
                       />
@@ -104,8 +101,8 @@ function Signup() {
                     <div className="inner-wrapper">
                       <PasswordOutlinedIcon className="icon" />
                       <input
-                      value = {password}
-                      onChange={(event)=>setPassword(event.target.value)}
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
                         type="text"
                         className="input-value"
                         placeholder="Enter New Password"
@@ -123,15 +120,15 @@ function Signup() {
                       />
                     </div>
                   </div>
-                  <button type = "submit" className="signup-button">Sign Up</button>
+                  <button type="submit" className="signup-button">
+                    Sign Up
+                  </button>
                 </form>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
-     
     </>
   );
 }
