@@ -1,9 +1,9 @@
 import classes from "./profilefeed.module.css";
 import Advert from "../Advert/Advert";
 import Endblock from "../EndBlock/Endblock";
-import Productlist from "../ProductList/Productlist";
 import { useContext } from "react";
 import HistoryContext from "../../store/history-context";
+import Profileproductlist from "../ProfileProductList/Profileproductlist";
 
 function Profilefeed() {
   const historyCtx = useContext(HistoryContext);
@@ -13,7 +13,7 @@ function Profilefeed() {
     content = <span className={classes.displayText}>No Items Bought Yet.</span>;
   } else {
     content = (
-      <Productlist title="Recent Orders" data={historyCtx.itemsbought} />
+      <Profileproductlist title="Recent Orders" data={historyCtx.itemsbought} />
     );
   }
 

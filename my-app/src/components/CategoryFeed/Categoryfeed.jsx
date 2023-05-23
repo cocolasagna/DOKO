@@ -29,7 +29,7 @@ const products = [
     productName: "Lays Chips",
     categoryID: 3,
     description: "Onion and Sour Cream Flavour",
-    price: "$2",
+    price: "2",
   },
 
   {
