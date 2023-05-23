@@ -41,12 +41,12 @@ function Categoryproductlist(props) {
         <hr />
 
         <ul className={classes.list}>
-          {currentItems.map((p) => {
-            if (p.categoryID === Id) {
+          {props.data.map((p) => {
+            if (p.category === Id) {
               return (
                 <Productitem
                   image={p.image}
-                  productName={p.productName}
+                  productName={p.name}
                   price={p.price}
                 />
               );

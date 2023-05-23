@@ -4,6 +4,9 @@ import SideBar from "../../components/SideBar/Sidebar";
 import Categoryfeed from "../../components/CategoryFeed/Categoryfeed";
 
 function Category(props) {
+
+    
+
   return (
     <>
       <MainNavbar />

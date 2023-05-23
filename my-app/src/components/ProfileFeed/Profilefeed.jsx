@@ -1,20 +1,19 @@
 import classes from "./profilefeed.module.css";
 import Advert from "../Advert/Advert";
 import Endblock from "../EndBlock/Endblock";
+import Profileproductlist from "../ProfileProductList/Profileproductlist";
 import { useContext } from "react";
 import HistoryContext from "../../store/history-context";
-import Profileproductlist from "../ProfileProductList/Profileproductlist";
-
 function Profilefeed() {
   const historyCtx = useContext(HistoryContext);
+  const history = JSON.parse(localStorage.getItem("history"));
+  console.log("data", history);
   let content;
 
-  if (historyCtx.totalItemsBought === 0) {
+  if (history === 0) {
     content = <span className={classes.displayText}>No Items Bought Yet.</span>;
   } else {
-    content = (
-      <Profileproductlist title="Recent Orders" data={historyCtx.itemsbought} />
-    );
+    content = <Profileproductlist title="Recent Orders" data={history} />;
   }
 
   return (
