@@ -4,16 +4,19 @@ import Endblock from "../EndBlock/Endblock";
 import Productlist from "../ProductList/Productlist";
 import { useContext } from "react";
 import HistoryContext from "../../store/history-context";
-
+import { useState } from "react";
 function Profilefeed() {
   const historyCtx = useContext(HistoryContext);
+  const history = JSON.parse(localStorage.getItem("history"))
+  console.log("data",history)
   let content;
 
-  if (historyCtx.totalItemsBought === 0) {
+  if (history === 0) {
     content = <span className={classes.displayText}>No Items Bought Yet.</span>;
   } else {
     content = (
-      <Productlist title="Recent Orders" data={historyCtx.itemsbought} />
+      <Productlist title="Recent Orders" data={history} />
+      
     );
   }
 

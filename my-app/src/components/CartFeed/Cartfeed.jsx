@@ -33,7 +33,19 @@ function Cartfeed() {
         withCredentials:true
       });
       console.log(response.data);
-      
+      historyCtx.itemsbought = cartCtx.itemsAdded.map((item) => ({
+        id: item.id,
+        image: item.image,
+        name: item.name,
+        price: item.price,
+        seller : item.seller,
+      }));
+  
+      console.log("items bought",historyCtx)
+      historyCtx.totalItemsBought = historyCtx.totalItemsBought + 1;
+  
+      console.log(historyCtx.itemsbought);
+      localStorage.setItem("history",JSON.stringify(historyCtx.itemsbought))
       localStorage.removeItem("cart")
       window.location.href = "/profile-page"
     } catch (error) {
@@ -44,18 +56,7 @@ function Cartfeed() {
     
     
   
-    historyCtx.itemsbought = cartCtx.itemsAdded.map((item) => ({
-      id: item.id,
-      image: item.image,
-      name: item.name,
-      price: item.price,
-      seller : item.seller,
-    }));
-
-    console.log("items bought",historyCtx)
-    historyCtx.totalItemsBought = historyCtx.totalItemsBought + 1;
-
-    console.log(historyCtx.itemsbought);
+    
 
     // cartCtx.cartCheckout();
     // total = 0; // Not sure if it works need to test with real Database.
