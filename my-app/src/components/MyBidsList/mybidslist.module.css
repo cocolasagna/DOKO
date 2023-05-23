@@ -1,0 +1,22 @@
+.listCover {
+  position: relative;
+  top: 5%;
+  width: 88%;
+  height: 75%;
+  left: 5%;
+  padding: 1%;
+}
+
+.list {
+  position: relative;
+  right: 3%;
+  /* border: 2px solid red; */
+  height: 85%;
+  width: 97.5%;
+  list-style: none;
+  align-items: center;
+  padding: 1%;
+  align-items: center;
+  justify-content: space-between;
+  overflow-y: scroll;
+}

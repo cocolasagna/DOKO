@@ -1,0 +1,4 @@
+.myBidFeedWrapper {
+  flex: 80%;
+  overflow-y: scroll;
+}

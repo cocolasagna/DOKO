@@ -13,20 +13,18 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-   
     try {
-      const response = await axios.post("http://localhost:5000/seller/login", {
-        email,
-        password,
-      },
-    
-      {
-        withCredentials:true
-      }
-   
-      );
+      const response = await axios.post(
+        "http://localhost:5000/seller/login",
+        {
+          email,
+          password,
+        },
 
-  
+        {
+          withCredentials: true,
+        }
+      );
 
       // Redirect the user to the home page or dashboard
       window.location.href = "/seller/dashboard";
@@ -38,8 +36,9 @@ function Login() {
 
   return (
     <>
-
-    <Link to = 'seller/signup' ><LoginNavbar buttontext="Sign In" /></Link>  
+      <Link to="seller/signup">
+        <LoginNavbar buttontext="Sign In" />
+      </Link>
       <div className="body">
         <div className="background">
           <div className="center-block">
@@ -59,10 +58,10 @@ function Login() {
                     <div className="inner-wrapper">
                       <EmailOutlinedIcon className="icon" />
                       <input
-                      type="email"
-                      value={email}
-                      onChange={(event) => setEmail(event.target.value)}
-                       
+                        type="email"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                        autoComplete="off"
                         className="input-value"
                         placeholder="Enter E-mail Address"
                       />
@@ -73,10 +72,10 @@ function Login() {
                     <div className="inner-wrapper">
                       <PasswordOutlinedIcon className="icon" />
                       <input
-                          type="password"
-                          value={password}
-                          onChange={(event) => setPassword(event.target.value)}
-                    
+                        type="password"
+                        value={password}
+                        autoComplete="off"
+                        onChange={(event) => setPassword(event.target.value)}
                         className="input-value"
                         placeholder="Enter Password"
                       />
