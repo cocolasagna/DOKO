@@ -57,10 +57,12 @@
 
 .input-box {
   /* border: 1px solid black; */
-  padding: 0.3rem;
+  margin-top: 4.5%;
   margin-right: 4rem;
+  display: flex;
+  align-items: center;
   margin-left: 1rem;
-  width: 28rem;
+  width: 90%;
   height: 2rem;
   border-radius: 20px;
   transition: box-shadow 1s;
@@ -98,11 +100,12 @@
 }
 
 .signup-button {
+  margin-top: 3%;
   padding: 0.3rem;
   margin-right: 4rem;
   margin-left: 1.3rem;
-  width: 90%;
-  height: 2rem;
+  width: 93%;
+  height: 2.4rem;
   border-radius: 20px;
   text-align: center;
   background-color: #e96e494a;

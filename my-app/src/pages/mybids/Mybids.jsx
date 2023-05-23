@@ -1,7 +1,7 @@
+
 import classes from "./mybids.module.css";
 import Sidebar from "../../components/SideBar/Sidebar";
 import MainNavbar from "../../components/MainNavbar/MainNavbar";
-import Productfeed from "../../components/ProductFeed/Productfeed";
 import Mybidsfeed from "../../components/MyBidsFeed/Mybidsfeed";
 
 function Mybids() {

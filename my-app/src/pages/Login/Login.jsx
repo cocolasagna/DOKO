@@ -53,7 +53,12 @@ function Login() {
             <div className="center-block-right">
               <div className="login-form">
                 <h1 className="login-title">Log In</h1>
-                <form onSubmit={handleSubmit} className="input-form">
+                <form
+                  onSubmit={handleSubmit}
+                  className="input-form"
+                  autoComplete="new-password"
+                  
+                >
                   <div className="input-box">
                     <div className="inner-wrapper">
                       <EmailOutlinedIcon className="icon" />
