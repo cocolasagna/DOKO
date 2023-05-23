@@ -144,11 +144,11 @@ const handleSubmit = async (e) => {
                       <select name="category" 
                         ref = {category} >
                         <option value="">Select a category</option>
-                        <option value="electronics">Electronics</option>
-                        <option value="clothing">Clothing</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Clothing">Clothing</option>
                         <option value="Food">Food</option>
                         <option value="Furniture">Furniture</option>
-                        <option value="Clothing">Sports</option>
+                        <option value="Sports">Sports</option>
 
                       </select>
 

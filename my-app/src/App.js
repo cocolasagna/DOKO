@@ -40,24 +40,24 @@ function App() {
       <Route exact path="/seller/dashboard" element={<HomeSeller />} />
       <Route
         path="/category-page-electronics"
-        element={<Category title1="Electronics" id={1} />}
+        element={<Category title1="Electronics" id="Electronics"/>}
       />
       <Route
         path="/category-page-sports"
-        element={<Category title1="Sports" id={2} />}
+        element={<Category title1="Sports" id= "Sports" />}
       />
 
       <Route
         path="/category-page-food"
-        element={<Category title1="Food" id={3} />}
+        element={<Category title1="Food" id= "Food" />}
       />
       <Route
         path="/category-page-clothing"
-        element={<Category title1="Clothing" id={4} />}
+        element={<Category title1="Clothing" id= "Clothing" />}
       />
       <Route
         path="/category-page-furniture"
-        element={<Category title1="Furniture" id={5} />}
+        element={<Category title1="Furniture" id= "Furniture" />}
       />
 
       <Route path="/home-page" element={<Home />} />
