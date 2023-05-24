@@ -39,6 +39,34 @@ const updatePassword = async(req,res)=>{
   
 }
 
+const updateprofile = async (req, res) => {
+    const Buyer = req.user
+    const buyerId = Buyer.id
+    const updates = Object.keys(req.body);
+    const allowedUpdates = ["name", "address" , "phone"];
+    const isValidOperation = updates.every((update) =>
+    allowedUpdates.includes(update)
+    );
+    if (!isValidOperation) {
+    return res.status(400).send({ error: "Invalid updates" });
+    }
+    try {
+    const user = await User.findByIdAndUpdate(buyerId, req.body, {
+    new: true,
+    runValidators: true,
+    });
+    if (!user) {
+    return res.status(404).send();
+    }
+    res.send(user);
+    console.log('user',user)
+    } catch (error) {
+    res.status(400).send(error);
+    }
+    }
+
+
+
 // Login a User
 
 const login = async(req,res)=>{
@@ -90,4 +118,4 @@ const getallproduct = async (req,res)=>{
 }
 
 
-module.exports = {register, login , getallproduct , logout , updatePassword}
+module.exports = {register, login , getallproduct , logout , updatePassword , updateprofile}
