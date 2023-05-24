@@ -27,7 +27,7 @@ function Changepwfeed() {
         withCredentials:true
        
       })
-      window.location.reload(true)
+      window.location.href = '/home-page'
 
     }catch(err){
       console.log(err)

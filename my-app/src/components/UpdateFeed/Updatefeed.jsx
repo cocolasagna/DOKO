@@ -23,7 +23,7 @@ function Updatefeed() {
        
       });
       console.log(response.data);
-      window.location.href = "/seller/dashboard"
+      window.location.href = "/home-page"
     } catch (error) {
       console.log(error);
     }

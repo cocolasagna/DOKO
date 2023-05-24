@@ -58,8 +58,7 @@ const updateprofile = async (req, res) => {
     if (!user) {
     return res.status(404).send();
     }
-    res.send(user);
-    console.log('user',user)
+    
     } catch (error) {
     res.status(400).send(error);
     }

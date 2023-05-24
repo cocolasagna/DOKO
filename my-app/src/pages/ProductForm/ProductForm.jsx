@@ -14,6 +14,7 @@ const ProductForm = () => {
   const category = useRef();
   const quantity = useRef();
   const bid = useRef();
+  const [imagePreview, setImagePreview] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,7 +65,10 @@ const ProductForm = () => {
       <div className="formBody">
         <div className="formBackground">
           <div className="formBlock">
-            <div className="productImg"></div>
+            <div className="productImg">
+            {imagePreview && <img src={imagePreview} alt="Product" />}
+
+            </div>
 
             <div className="formBlockDesc">
               <div className="ProductForm">
@@ -176,7 +180,10 @@ const ProductForm = () => {
                       id="file"
                       accept=".png, .jpg, ,jpeg"
                       className="input-file"
-                      onChange={(e) => setFile(e.target.files[0])}
+                      onChange={(e) =>  {
+                        setFile(e.target.files[0]);
+                        setImagePreview(URL.createObjectURL(e.target.files[0]));
+                      }}
                     />
                   </div>
                   <button className="submit-button">Submit</button>
