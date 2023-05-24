@@ -42,6 +42,14 @@ function Productfeed() {
     } catch (error) {
       console.log(error);
     }
+
+      console.log("Submit Clicked");
+    bidCtx.addBid({
+      id: productSelected.id,
+      image: productSelected.image,
+      productName: productSelected.productName,
+      price: productSelected.price,
+    });
   };
 
   const PF = "http://localhost:5000/images/";
@@ -100,13 +108,7 @@ function Productfeed() {
   }
 
   function submitHandler() {
-    console.log("Submit Clicked");
-    bidCtx.addBid({
-      id: productSelected.id,
-      image: productSelected.image,
-      productName: productSelected.productName,
-      price: productSelected.price,
-    });
+  
   }
 
   return (

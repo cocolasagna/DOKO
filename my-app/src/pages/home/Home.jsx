@@ -3,11 +3,14 @@ import SideBar from "../../components/SideBar/Sidebar";
 import MainNavbarBuyer from "../../components/MainNavbarBuyer/MainNavbarBuyer";
 import Homefeed from "../../components/HomeFeed/Homefeed";
 import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import UsernameContext from "../../store/username-context";
 import axios from "axios";
 
 function Home() {
   const [userName, setUserName] = useState([]);
+  const usernameCtx = useContext(UsernameContext);
+
   useEffect(() => {
     axios
       .get("http://localhost:5000/product/getallproduct", {
@@ -20,11 +23,14 @@ function Home() {
         console.log(err);
       });
   }, []);
+
+  usernameCtx.name = userName;
+
   return (
     <>
       <MainNavbarBuyer />
       <div className={classes.homeContainer}>
-        <SideBar name={userName} />
+        <SideBar name={usernameCtx.name} />
         <Homefeed />
       </div>
     </>

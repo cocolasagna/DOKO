@@ -8,20 +8,23 @@ import { HistoryContextProvider } from "./store/history-context";
 import { NotificationContextProvider } from "./store/notification-context";
 import { ProductContextProvider } from "./store/product-context";
 import { BidContextProvider } from "./store/bids-context";
+import { UsernameContextProvider } from "./store/username-context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BidContextProvider>
-    <ProductContextProvider>
-      <NotificationContextProvider>
-        <HistoryContextProvider>
-          <CartContextProvider>
-            <BrowserRouter>
-              <App />
-            </BrowserRouter>
-          </CartContextProvider>
-        </HistoryContextProvider>
-      </NotificationContextProvider>
-    </ProductContextProvider>
-  </BidContextProvider>
+  <UsernameContextProvider>
+    <BidContextProvider>
+      <ProductContextProvider>
+        <NotificationContextProvider>
+          <HistoryContextProvider>
+            <CartContextProvider>
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
+            </CartContextProvider>
+          </HistoryContextProvider>
+        </NotificationContextProvider>
+      </ProductContextProvider>
+    </BidContextProvider>
+  </UsernameContextProvider>
 );

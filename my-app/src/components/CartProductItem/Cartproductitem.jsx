@@ -1,6 +1,6 @@
-import { useContext } from "react";
+import classes from "./cartproductitem.module.css";
+import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
-import classes from "./productitem.module.css";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import CartContext from "../../store/cart-context";
@@ -8,14 +8,16 @@ import NotificationContext from "../../store/notification-context";
 import ProductContext from "../../store/product-context";
 import RemoveShoppingCartOutlinedIcon from "@mui/icons-material/RemoveShoppingCartOutlined";
 import DoNotDisturbOnOutlinedIcon from "@mui/icons-material/DoNotDisturbOnOutlined";
+import ProductionQuantityLimitsOutlinedIcon from "@mui/icons-material/ProductionQuantityLimitsOutlined";
 
-function Productitem(props) {
+function Cartproductitem(props) {
   const cartCtx = useContext(CartContext);
   const notiCtx = useContext(NotificationContext);
   const productCtx = useContext(ProductContext);
   const itemIsAdded = cartCtx.itemInCart(props.id);
   const itemisWished = cartCtx.itemInWish(props.id);
   const PF = "http://localhost:5000/images/";
+  const quantity = useRef();
 
   function productPageHandler() {
     productCtx.productClicked = {
@@ -85,6 +87,7 @@ function Productitem(props) {
         id: props.id,
         image: props.image,
         name: props.productName,
+        productquantity: quantity.current.value,
         price: props.price,
         description: props.description,
         seller: props.seller,
@@ -106,8 +109,18 @@ function Productitem(props) {
             <h2>{props.productName}</h2>
           </div>
 
+          <div className={classes.infoMid}>
+            <div className={classes.iconContainer}>
+              <ProductionQuantityLimitsOutlinedIcon />
+            </div>
+            {/* <span>Quantity:</span> */}
+
+            <input type="number" ref={quantity} className={classes.quantity} />
+          </div>
+
           <div className={classes.infoDown}>
             <span>Price: ${props.price}</span>
+            {/* <span>{quantity}</span> */}
             <button
               className={classes.addBtn}
               onClick={() => {
@@ -142,4 +155,4 @@ function Productitem(props) {
   );
 }
 
-export default Productitem;
+export default Cartproductitem;

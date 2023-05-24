@@ -4,6 +4,7 @@ import axios from "axios";
 import classes from "./productdetail.module.css";
 import Endblock from "../../components/EndBlock/Endblock";
 import MainNavBar from "../../components/MainNavbar/MainNavbar";
+
 function ProductDetail() {
   const PF = "http://localhost:5000/images/";
   const [product, setProduct] = useState({});
