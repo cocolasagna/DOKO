@@ -3,10 +3,23 @@ import { useContext } from "react";
 import NotificationContext from "../../store/notification-context";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import axios from "axios";
+import AvTimerOutlinedIcon from '@mui/icons-material/AvTimerOutlined';
 
 function Notificationitem(props) {
   const notiCtx = useContext(NotificationContext);
-  const PF = 'http://localhost:5000/images/'
+  const PF = 'http://localhost:5000/images/';
+
+  let icon = null;
+
+  if (props.bidAccept === true) {
+    icon = <CheckCircleOutlineOutlinedIcon className={classes.icon} />;
+  } else if (props.bidAccept === false) {
+    icon = <CancelOutlinedIcon className={classes.icon} />;
+  }else if (props.bidAccept === undefined) {
+    icon = < AvTimerOutlinedIcon  className={classes.icon} />;
+  }
+
   return (
     <li>
       <div className={classes.notificationCover}>
@@ -17,18 +30,13 @@ function Notificationitem(props) {
           <div className={classes.infoUp}>
             <span>{props.productName} </span>
           </div>
-
           <div className={classes.infoDown}>
-            <span>${props.price}</span>
+            <span>${props.price} : ${props.bidAmount}</span>
           </div>
         </div>
         <div className={classes.endContent}>
           <div className={classes.responseCover}>
-            {notiCtx.notificationToggle ? (
-              <CheckCircleOutlineOutlinedIcon className={classes.icon} />
-            ) : (
-              <CancelOutlinedIcon className={classes.icon} />
-            )}
+            {icon}
           </div>
         </div>
       </div>

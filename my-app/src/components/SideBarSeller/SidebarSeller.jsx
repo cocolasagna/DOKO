@@ -1,9 +1,9 @@
-import classes from "./sidebar.module.css";
+import classes from "./sidebarseller.module.css";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
-import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import AutoAwesomeOutlinedIcon from "@mui/icons-material/AutoAwesomeOutlined";
+import AddBusinessOutlinedIcon from "@mui/icons-material/AddBusinessOutlined";
+import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
 import { Link } from "react-router-dom";
 
 function SidebarSeller(props) {
@@ -27,30 +27,25 @@ function SidebarSeller(props) {
         </div>
         <hr />
 
-       
+        <Link to="/settings-page-seller">
+          <div className={classes.optionCover}>
+            <SettingsOutlinedIcon className={classes.icon} />
+            <span>Settings</span>
+          </div>
+        </Link>
 
-        <div className={classes.optionCover}>
-          <NotificationsNoneOutlinedIcon className={classes.icon} />
-          <span>Notifications</span>
-        </div>
-        <hr />
-
-        <div className={classes.optionCover}>
-          <SettingsOutlinedIcon className={classes.icon} />
-          <span>Settings</span>
-        </div>
         <hr />
 
         <div className={classes.optionCover}>
           <Link to="/seller/product/new">
-            <AutoAwesomeOutlinedIcon className={classes.icon} />
+            <AddBusinessOutlinedIcon className={classes.icon} />
             <span>Create Product</span>
           </Link>
         </div>
-        <hr/>
+        <hr />
         <div className={classes.optionCover}>
           <Link to="/seller/offers">
-            <AutoAwesomeOutlinedIcon className={classes.icon} />
+            <LocalOfferOutlinedIcon className={classes.icon} />
             <span>Your Offers</span>
           </Link>
         </div>

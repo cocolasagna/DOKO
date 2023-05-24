@@ -1,5 +1,5 @@
 import classes from "./Home.module.css";
-import SideBarSeller from "../../components/SideBarSeller/SidebarSeller";
+import SidebarSeller from "../../components/SideBarSeller/SidebarSeller";
 import MainNavbar from "../../components/MainNavbar/MainNavbar";
 import HomefeedSeller from "../../components/HomeFeedSeller/HomefeedSeller";
 
@@ -22,7 +22,7 @@ function HomeSeller() {
     <>
       <MainNavbar />
       <div className={classes.homeContainer}>
-        <SideBarSeller name={seller} />
+        <SidebarSeller name={seller} />
         <HomefeedSeller />
       </div>
     </>
