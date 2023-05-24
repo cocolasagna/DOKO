@@ -8,5 +8,6 @@ Userrouter.post('/signup',controls.register)
 Userrouter.post('/login' , controls.login)
 Userrouter.get('/allproduct',auth, controls.getallproduct)
 Userrouter.post('/logout',controls.logout)
+Userrouter.put('/updatepassword',auth,controls.updatePassword)
 
 module.exports = Userrouter; 
