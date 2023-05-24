@@ -13,6 +13,7 @@ function BidList(props) {
       <ul className={classes.bidlist}>
         {
         props.product.map((p) => (
+         
           <Biditem 
            id = {p._id}
            bid = {p.bidAmount}
@@ -20,7 +21,9 @@ function BidList(props) {
            name = {p.product.name}
            least = {p.product.bid}
            image = {p.product.image}
+           bidAccept = {p.bidAccept}
           />
+          
         ))}
       </ul>
     </div>

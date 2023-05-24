@@ -46,7 +46,7 @@ const userBid = async(req,res)=>{
         console.log("user:", userId)
         const bids = await BuyerBid.find({user:userId}).populate({
             path:'product',
-             select: 'name price  image'
+             select: 'name price  image bidAccept'
         });
         res.send({bids:bids})
         console.log(bids)
