@@ -3,8 +3,11 @@ import Biditem from "../BidItem/Biditem.jsx";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import Notificationitem from "../NotificationItem/Noitficationitem";
+import Notificationlist from "../NotificationList/Notificationlist";
 
 function BidList(props) {
+
 
 
   return (
@@ -20,8 +23,9 @@ function BidList(props) {
            name = {p.product.name}
            least = {p.product.bid}
            image = {p.product.image}
-          />
-        ))}
+          />))}
+
+        
       </ul>
     </div>
   );

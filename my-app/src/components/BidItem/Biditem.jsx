@@ -13,7 +13,7 @@ import axios from "axios";
 function BidItem(props) {
     const productCtx= useContext(ProductContext)
     const PF = 'http://localhost:5000/images/'
-
+    const notiCtx = useContext(NotificationContext);
 
     const {id} = useParams()
 
@@ -27,7 +27,8 @@ function BidItem(props) {
                 withCredentials:true
                
               });
-           console.log('clicked')
+        props.onBidAcceptChange(true);
+        console.log('clicked')
         } catch (error) {
             console.log(error)
         }
@@ -69,11 +70,23 @@ function BidItem(props) {
                 </div>
                 <div className={classes.infoDown}>
                     <span>Bid recieved:${props.bid}</span>
-                    <button onClick={handleClickAccept} className={classes.addBtn}>
+                    <button className={classes.addBtn}
+                    onClick={()=>{
+                        
+                        handleClickAccept();
+                      
+                    }} 
+                    >
                         <CheckCircleIcon className={classes.icon}/>
                         
                     </button>
-                    <button onClick = {handleClickReject} className={classes.addBtn}><CancelIcon className={classes.icon}/></button>
+                    <button onClick = {()=>{
+                        handleClickReject();
+                        
+                    }}
+                         className={classes.addBtn}>
+                        <CancelIcon className={classes.icon}/>
+                        </button>
                 </div>
             
                 
