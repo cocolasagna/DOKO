@@ -34,7 +34,7 @@ console.log(bid)
   
   const bidCtx = useContext(BidContext);
 
-  if (bid === 0) {
+  if (bid.length === 0) {
     content = <span className={classes.displayText}>No New Bids</span>;
   } else {
     content = <Mybidslist title="My Bids" data={bid} />;
