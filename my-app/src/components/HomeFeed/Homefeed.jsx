@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 function Homefeed() {
-  const [product, setProduct] = useState([]);
+ const [product, setProduct] = useState([]);
 
   useEffect(() => {
     axios

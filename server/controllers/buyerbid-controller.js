@@ -44,8 +44,9 @@ const userBid = async(req,res)=>{
         const User = req.user
         const userId = User.id
         console.log("user:", userId)
-        const bids = await BuyerBid.find({user:userId})
+        const bids = await BuyerBid.find({userId})
         res.send(bids)
+       
     }
     catch(err){
         console.log(err);

@@ -23,8 +23,11 @@ const placeOrder = async(req,res)=>{
 }
 
 const userOrder = async(req,res)=>{
+    const User = req.user
+        const userId = User.id
+        console.log("user:", userId)
     try{
-        const orders = await Order.find({ user: req.body.user });
+        const orders = await Order.find({ userId });
         res.send(orders);
     }
     catch(err){

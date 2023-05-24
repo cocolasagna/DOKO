@@ -9,6 +9,7 @@ import BidContext from "../../store/bids-context";
 let content;
 
 function Mybidsfeed() {
+  
   const bidCtx = useContext(BidContext);
 
   if (bidCtx.totalBids === 0) {

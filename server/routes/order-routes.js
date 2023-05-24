@@ -5,7 +5,7 @@ const OrderRouter = express.Router()
 const authBuyer = require("../controllers/authBuyer-controller")
 
 OrderRouter.post('/newOrder',authBuyer ,controls.placeOrder)
-OrderRouter.get('/userOrder',controls.userOrder)
+OrderRouter.get('/userOrder',authBuyer ,controls.userOrder)
 OrderRouter.get('/:id',controls.findOrder)
 
 module.exports = OrderRouter
