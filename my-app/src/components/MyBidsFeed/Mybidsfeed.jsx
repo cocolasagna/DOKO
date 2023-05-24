@@ -9,12 +9,13 @@ import BidContext from "../../store/bids-context";
 let content;
 
 function Mybidsfeed() {
+  
   const bidCtx = useContext(BidContext);
 
   if (bidCtx.totalBids === 0) {
     content = <span className={classes.displayText}>No New Bids</span>;
   } else {
-    content = <Profileproductlist title="My Bids" data={bidCtx.bids} />;
+    content = <Mybidslist title="My Bids" data={bidCtx.bids} />;
   }
 
   return (

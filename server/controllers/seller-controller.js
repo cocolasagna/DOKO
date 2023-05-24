@@ -154,7 +154,7 @@ const offers = async (req,res)=>{
     const sellerId = Seller.id
     const offers= await BuyerBid.find({ seller: sellerId}).populate({
       path:'product',
-       select: 'name price bid'
+       select: 'name price bid image'
   });
  console.log(offers)
   res.send({offers  });
@@ -162,5 +162,31 @@ const offers = async (req,res)=>{
     
   }
 }
-    
-module.exports = {register ,login ,  product , addproduct, updateproduct, deleteproduct , productdetails , logout , offers}
+
+const bidAccept = async(req,res)=>{
+  const updates = Object.keys(req.body);
+  const allowedUpdates = ["bidAccept"];
+  const isValidOperation = updates.every((update) =>
+  allowedUpdates.includes(update)
+  );
+  if (!isValidOperation) {
+  return res.status(400).send({ error: "Invalid updates" });
+  }
+  try {
+  const product = await BuyerBid.findByIdAndUpdate(req.params.id, req.body, {
+  new: true,
+  runValidators: true,
+  });
+  if (!product) {
+  return res.status(404).send();
+  }
+  console.log('bid accepted')
+  res.send(product);
+  } catch (error) {
+  res.status(400).send(error);
+  }
+  }
+
+
+
+module.exports = {register ,login ,  product , addproduct, updateproduct, deleteproduct , productdetails , logout , offers , bidAccept}

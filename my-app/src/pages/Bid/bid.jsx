@@ -1,5 +1,5 @@
 import classes from "./bid.module.css";
-import SideBar from "../../components/SideBar/Sidebar";
+import SideBarSeller from "../../components/SideBarSeller/SidebarSeller";
 import MainNavbar from "../../components/MainNavbar/MainNavbar";
 import UsernameContext from "../../store/username-context";
 import Bidfeed from "../../components/BidFeed/Bidfeed";
@@ -15,8 +15,9 @@ function Home() {
     <>
       <MainNavbar />
       <div className={classes.bidContainer}>
-        <SideBar name={usernameCtx.name} />
-        <Bidfeed />
+        <SideBarSeller  />
+        <Bidfeed/>
+        
       </div>
     </>
   );
