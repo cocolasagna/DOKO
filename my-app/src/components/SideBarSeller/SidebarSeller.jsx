@@ -47,6 +47,13 @@ function SidebarSeller(props) {
             <span>Create Product</span>
           </Link>
         </div>
+        <hr/>
+        <div className={classes.optionCover}>
+          <Link to="/seller/offers">
+            <AutoAwesomeOutlinedIcon className={classes.icon} />
+            <span>Your Offers</span>
+          </Link>
+        </div>
       </div>
     </div>
   );
