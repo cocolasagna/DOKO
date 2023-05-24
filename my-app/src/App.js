@@ -21,6 +21,7 @@ import Changepassword from "./pages/settings/Changepassword";
 import Search from "./pages/search/Search";
 import Updateprofile from "./pages/settings/Updateprofile";
 import { Route, Routes } from "react-router-dom";
+import Bid from './pages/Bid/bid';
 function App() {
   return (
     <Routes>
@@ -38,6 +39,7 @@ function App() {
       <Route path="/update-profile" element={<Updateprofile />} />
       <Route path="/search-page" element={<Search />} />
       <Route exact path="/seller/dashboard" element={<HomeSeller />} />
+      <Route exact path="/seller/offers" element={<Bid />} />
       <Route
         path="/category-page-electronics"
         element={<Category title1="Electronics" id="Electronics"/>}
