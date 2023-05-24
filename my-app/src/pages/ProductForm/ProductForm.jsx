@@ -146,12 +146,7 @@ const ProductForm = () => {
                         <option value="Clothing">Clothing</option>
                         <option value="Food">Food</option>
                         <option value="Furniture">Furniture</option>
-<<<<<<< HEAD
-                        <option value="Sports">Sports</option>
-
-=======
                         <option value="Clothing">Sports</option>
->>>>>>> 6f0b0679bfe757cfb547299ecee2f8317aa40e34
                       </select>
                     </div>
                   </div>

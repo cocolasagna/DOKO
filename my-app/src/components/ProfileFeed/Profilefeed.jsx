@@ -11,7 +11,7 @@ function Profilefeed() {
   console.log("data",history)
   let content;
 
-  if (history === 0) {
+  if (history.length === 0) {
     content = <span className={classes.displayText}>No Items Bought Yet.</span>;
   } else {
     content = (
