@@ -1,5 +1,6 @@
 import classes from "./mybidsitem.module.css";
 import { useContext } from "react";
+import GavelOutlinedIcon from "@mui/icons-material/GavelOutlined";
 
 function Mybidsitem(props) {
   return (
@@ -10,16 +11,22 @@ function Mybidsitem(props) {
         </div>
         <div className={classes.midContent}>
           <div className={classes.infoUp}>
-            <span>{props.productName} </span>
+            <span>{props.name} </span>
           </div>
 
           <div className={classes.infoDown}>
-            <span>${props.price}</span>
+            <div className={classes.infoDownPrice}>
+              <span className={classes.price}> ${props.price}</span>
+            </div>
+            <div className={classes.infoDownBid}>
+              <span>Bid Amount: ${props.price}</span>
+            </div>
           </div>
-          
         </div>
         <div className={classes.endContent}>
-          <div className={classes.responseCover}></div>
+          <div className={classes.responseCover}>
+            <GavelOutlinedIcon className={classes.icon} />
+          </div>
         </div>
       </div>
     </li>

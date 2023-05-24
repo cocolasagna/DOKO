@@ -15,8 +15,18 @@
   top: calc(((100vh - 80%)) / 2);
   left: calc((100vw - 60%) / 2);
   border-radius: 2.2rem;
-
+  border: 1px solid black;
   display: flex;
+}
+
+.formBlockLeft {
+  border: 1px solid red;
+  width: 60%;
+}
+
+.formBlockRight {
+  border: 1px solid blue;
+  width: 50%;
 }
 
 .ProductImg {

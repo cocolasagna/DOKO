@@ -64,7 +64,8 @@ const ProductForm = () => {
       <div className="formBody">
         <div className="formBackground">
           <div className="formBlock">
-            <div className="productImg"></div>
+            <div className="productImg">
+            </div>
 
             <div className="formBlockDesc">
               <div className="ProductForm">

@@ -1,10 +1,10 @@
 .itemCover {
   /* border: 1px solid black; */
-  width: 21%;
+  width: 23%;
   min-width: 21%;
   margin-right: 3rem;
   margin-bottom: 5%;
-  height: 89%;
+  height: 87%;
   border-radius: 30px;
   box-shadow: 2px 2px 5px 2px rgba(37, 37, 37, 0.234);
   padding: 1%;
@@ -12,7 +12,7 @@
 }
 
 .itemCover:hover {
-  height: 94%;
+  height: 90%;
   border-radius: 30px 30px 0px 0px;
   background-color: #d3ab9f74;
 }
@@ -74,12 +74,13 @@
   font-size: 22px;
   position: relative;
   left: 2%;
+  width: 55%;
   bottom: 5px;
 }
 
 .addBtn {
   position: relative;
-  left: 15%;
+  left: 7%;
   bottom: 5px;
   height: 65%;
   width: 15%;
