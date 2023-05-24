@@ -1,5 +1,4 @@
 import Advert from "../Advert/Advert";
-import Categorylist from "../CategoryList/Categorylist";
 import ProductlistSeller from "../ProductListSeller/ProductlistSeller";
 import classes from "./homefeed.module.css";
 import Endblock from "../EndBlock/Endblock";

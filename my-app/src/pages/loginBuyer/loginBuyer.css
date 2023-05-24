@@ -81,6 +81,7 @@
 
 .inner-wrapper {
   display: flex;
+  width: 100%;
   margin-left: 5px;
   margin-top: 2px;
   padding: 2px;
@@ -88,8 +89,9 @@
 
 .input-value {
   border: none;
+  position: relative;
   display: block;
-  width: calc(100% - 2.8rem);
+  width: 92%;
   margin-left: 5px;
   margin-top: 1.7px;
   background-color: #f1cfc883;

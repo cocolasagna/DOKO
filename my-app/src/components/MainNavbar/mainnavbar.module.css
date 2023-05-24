@@ -35,6 +35,13 @@
 
 .navbarmid li {
   margin: 1rem;
+  cursor: pointer;
+}
+
+.navbarmid li span {
+  font-size: 1.1rem;
+  color: black;
+  transition: opacity 1s;
 }
 
 .navbarmid a {
@@ -46,7 +53,8 @@
 
 .navbarmid a:hover,
 .navbarmid a:active,
-.navbarmid a.active {
+.navbarmid a.active,
+.navbarmid li span:hover {
   opacity: 0.8;
 }
 
