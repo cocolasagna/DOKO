@@ -146,7 +146,7 @@ const ProductForm = () => {
                         <option value="Clothing">Clothing</option>
                         <option value="Food">Food</option>
                         <option value="Furniture">Furniture</option>
-                        <option value="Clothing">Sports</option>
+                        <option value="Sports">Sports</option>
                       </select>
                     </div>
                   </div>

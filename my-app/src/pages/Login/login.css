@@ -41,9 +41,7 @@
 }
 
 .login-form {
-  position: relative;
-  top: calc(100% - 28.5rem);
-  bottom: calc(100% - 28.5rem);
+  margin-top: -100px;
 }
 
 .loginImage {

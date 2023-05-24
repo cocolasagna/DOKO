@@ -20,7 +20,9 @@ import Settings from "./pages/settings/Settings";
 import Changepassword from "./pages/settings/Changepassword";
 import Search from "./pages/search/Search";
 import Updateprofile from "./pages/settings/Updateprofile";
+import Mybids from "./pages/mybids/Mybids";
 import { Route, Routes } from "react-router-dom";
+import Bid from './pages/Bid/bid';
 function App() {
   return (
     <Routes>
@@ -38,26 +40,27 @@ function App() {
       <Route path="/update-profile" element={<Updateprofile />} />
       <Route path="/search-page" element={<Search />} />
       <Route exact path="/seller/dashboard" element={<HomeSeller />} />
+      <Route exact path="/seller/offers" element={<Bid />} />
       <Route
         path="/category-page-electronics"
-        element={<Category title1="Electronics" id="Electronics"/>}
+        element={<Category title1="Electronics" id="Electronics" />}
       />
       <Route
         path="/category-page-sports"
-        element={<Category title1="Sports" id= "Sports" />}
+        element={<Category title1="Sports" id="Sports" />}
       />
 
       <Route
         path="/category-page-food"
-        element={<Category title1="Food" id= "Food" />}
+        element={<Category title1="Food" id="Food" />}
       />
       <Route
         path="/category-page-clothing"
-        element={<Category title1="Clothing" id= "Clothing" />}
+        element={<Category title1="Clothing" id="Clothing" />}
       />
       <Route
         path="/category-page-furniture"
-        element={<Category title1="Furniture" id= "Furniture" />}
+        element={<Category title1="Furniture" id="Furniture" />}
       />
 
       <Route path="/home-page" element={<Home />} />
@@ -67,6 +70,7 @@ function App() {
       <Route path="/profile-page" element={<Profile />} />
       <Route path="/notification-page" element={<Notification />} />
       <Route path="/product-page" element={<Product />} />
+      <Route path="/bids-page" element={<Mybids />} />
     </Routes>
   );
 }

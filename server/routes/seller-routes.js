@@ -15,5 +15,6 @@ Sellerrouter.patch('/product/update/:id',auth,  controls.updateproduct)
 Sellerrouter.post('/addproduct',auth,  controls.addproduct);
 Sellerrouter.post('/login' , controls.login)
 Sellerrouter.post('/logout',controls.logout)
+Sellerrouter.get('/offers',auth , controls.offers)
 
 module.exports = Sellerrouter; 

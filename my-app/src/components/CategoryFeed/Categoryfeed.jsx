@@ -2,7 +2,7 @@ import classes from "./categoryfeed.module.css";
 import Advert from "../Advert/Advert";
 import Categoryproductlist from "../CategoryProductLIst/Categoryproductlist";
 import Endblock from "../EndBlock/Endblock";
-import { useEffect , useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 // const products = [
 //   // ELectronics = 1  Sports = 2 Food =3 Clothing = 4 Furniture = 5
@@ -61,15 +61,8 @@ import axios from "axios";
 //   },
 // ];
 
-
-
-
-
-
 function Categoryfeed(props) {
-
-
-  const [products, setProducts ] = useState([])
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     axios
       .get("http://localhost:5000/product/getallproduct", {
@@ -77,14 +70,12 @@ function Categoryfeed(props) {
       })
       .then((res) => {
         setProducts(res.data.products);
-       
-       
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-  console.log(products)
+  console.log(products);
 
   return (
     <div className={classes.categoryWrapper}>

@@ -5,6 +5,7 @@ import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlin
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import ProductContext from "../../store/product-context";
 import CartContext from "../../store/cart-context";
+import BidContext from "../../store/bids-context";
 import NotificationContext from "../../store/notification-context";
 import RemoveShoppingCartOutlinedIcon from "@mui/icons-material/RemoveShoppingCartOutlined";
 import DoNotDisturbOnOutlinedIcon from "@mui/icons-material/DoNotDisturbOnOutlined";
@@ -14,41 +15,36 @@ import { useState } from "react";
 import axios from "axios";
 
 function Productfeed() {
+  const bidAmount = useRef();
+  const bidCtx = useContext(BidContext);
 
-  const bidAmount = useRef()
- 
- 
+  const handleOnEnter = async (e) => {
+    e.preventDefault();
 
+    const newBid = {
+      bidAmount: bidAmount.current.value,
+      product: productSelected.id,
+      seller: productSelected.seller,
+      price: productSelected.price,
+    };
 
-  const handleOnEnter = async(e) =>{
-   
-    e.preventDefault()
-
-
-    
-    
-   const  newBid = {
-      bidAmount :bidAmount.current.value,
-      product: productSelected.id , 
-      seller : productSelected.seller,
-      price : productSelected.price
-    }
-
-    console.log('bid', newBid)
+    console.log("bid", newBid);
     try {
-    
-      const response = await axios.post("http://localhost:5000/buyerbid/addbid", newBid, {
-        withCredentials:true
-      });
+      const response = await axios.post(
+        "http://localhost:5000/buyerbid/addbid",
+        newBid,
+        {
+          withCredentials: true,
+        }
+      );
       console.log(response.data);
-      window.location.href = "/home-page"
+      window.location.href = "/home-page";
     } catch (error) {
       console.log(error);
     }
-    
-  }
+  };
 
-  const PF = 'http://localhost:5000/images/'
+  const PF = "http://localhost:5000/images/";
   const cartCtx = useContext(CartContext);
   const notiCtx = useContext(NotificationContext);
   const productCtx = useContext(ProductContext);
@@ -103,12 +99,22 @@ function Productfeed() {
     }
   }
 
+  function submitHandler() {
+    console.log("Submit Clicked");
+    bidCtx.addBid({
+      id: productSelected.id,
+      image: productSelected.image,
+      productName: productSelected.productName,
+      price: productSelected.price,
+    });
+  }
+
   return (
     <div className={classes.productFeedWrapper}>
       <div className={classes.productWrapper}>
         <div className={classes.imageContent}>
           <div className={classes.imageWrapper}>
-            <img src={PF+productSelected.image} alt="" />
+            <img src={PF + productSelected.image} alt="" />
           </div>
         </div>
 
@@ -116,11 +122,6 @@ function Productfeed() {
           <div className={classes.infoUp}>
             <div className={classes.itemInfoUp}>
               <h1>{productSelected.productName}</h1>
-              <span className={classes.description}>
-              <h1>{productSelected.description}</h1>
-                {/* {" "}
-                Very Good Mobile Phone */}
-              </span>
             </div>
             <div className={classes.itemInfoDown}>
               <span> Price: ${productSelected.price}</span>
@@ -154,13 +155,28 @@ function Productfeed() {
             </div>
           </div>
           <form onSubmit={handleOnEnter}>
-          <div className={classes.infoMid} >
-            <span>Bid Amount</span>
-            <input type="integer" placeholder="Enter Bid Amount" ref={bidAmount}  />
-            <button className ={classes.submitBtn} type="submit">Submit</button>
-          </div>
+            <div className={classes.infoMid}>
+              <span>Bid Amount</span>
+              <input
+                type="integer"
+                placeholder="Enter Bid Amount"
+                ref={bidAmount}
+              />
+              <button
+                className={classes.submitBtn}
+                type="submit"
+                onClick={submitHandler}
+              >
+                Submit
+              </button>
+            </div>
           </form>
-          <div className={classes.infoDown}></div>
+          <div className={classes.infoDown}>
+            <h2 className={classes.descriptionHeader}>Description</h2>
+            <span className={classes.description}>
+              <span>{productSelected.description}</span>
+            </span>
+          </div>
         </div>
       </div>
       <Endblock />

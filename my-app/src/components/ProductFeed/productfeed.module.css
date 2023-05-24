@@ -68,22 +68,17 @@
 }
 
 .itemInfoUp h1 {
-  font-size: 150%;
-  padding: 1%;
-}
-
-.itemInfoUp span {
   position: relative;
-  bottom: 12%;
-  left: 1%;
-  flex-wrap: wrap;
+  top: 5%;
+  font-size: 190%;
+  padding: 1%;
 }
 
 .itemInfoDown {
   position: relative;
   left: 3%;
   height: 30%;
-  bottom: 15%;
+  bottom: 25%;
   display: flex;
 }
 
@@ -163,4 +158,21 @@
   cursor: pointer;
   background-color: #b5948c83;
   box-shadow: 2px 2px 5px 2px rgba(37, 37, 37, 0.234);
+}
+
+.description {
+  width: 94%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  position: relative;
+  left: 5%;
+  font-size: 140%;
+}
+
+.descriptionHeader {
+  left: 5%;
 }
