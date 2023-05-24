@@ -10,7 +10,7 @@ function Profilefeed() {
   console.log("data", history);
   let content;
 
-  if (!history || history.length === 0) {
+  if (!history || history.length === 0) { // error fixed
     content = <span className={classes.displayText}>No Items Bought Yet.</span>;
   } else {
     content = <Profileproductlist title="Recent Orders" data={history} />;
