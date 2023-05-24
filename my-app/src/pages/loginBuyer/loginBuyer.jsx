@@ -13,26 +13,25 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-   
     try {
-      await axios.post("http://localhost:5000/user/login", {
-        email,
-        password,
-      },
-    
-      {
-        withCredentials:true
-      }
-   
-      ).then((response)=>{
-        console.log('response',response)
-        window.location.href = "/home-page";
-      });
+      await axios
+        .post(
+          "http://localhost:5000/user/login",
+          {
+            email,
+            password,
+          },
 
-  
+          {
+            withCredentials: true,
+          }
+        )
+        .then((response) => {
+          console.log("response", response);
+          window.location.href = "/home-page";
+        });
 
       // Redirect the user to the home page or dashboard
-     
     } catch (error) {
       console.error(error);
       alert("Failed to login");
@@ -41,8 +40,10 @@ function Login() {
 
   return (
     <>
-
-    <Link to = 'seller/signup' ><LoginNavbar buttontext="Sign In" /></Link>  
+      {/* <Link to="seller/signup">
+        <LoginNavbar/>
+      </Link> */}
+      <LoginNavbar />
       <div className="body">
         <div className="background">
           <div className="center-block">
@@ -57,15 +58,18 @@ function Login() {
             <div className="center-block-right">
               <div className="login-form">
                 <h1 className="login-title">Log In</h1>
-                <form onSubmit={handleSubmit} className="input-form">
+                <form
+                  onSubmit={handleSubmit}
+                  className="input-form"
+                  autoComplete="new-password"
+                >
                   <div className="input-box">
                     <div className="inner-wrapper">
                       <EmailOutlinedIcon className="icon" />
                       <input
-                      type="email"
-                      value={email}
-                      onChange={(event) => setEmail(event.target.value)}
-                       
+                        type="email"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
                         className="input-value"
                         placeholder="Enter E-mail Address"
                       />
@@ -76,10 +80,9 @@ function Login() {
                     <div className="inner-wrapper">
                       <PasswordOutlinedIcon className="icon" />
                       <input
-                          type="password"
-                          value={password}
-                          onChange={(event) => setPassword(event.target.value)}
-                    
+                        type="password"
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
                         className="input-value"
                         placeholder="Enter Password"
                       />

@@ -52,6 +52,7 @@ function Cartfeed() {
       console.log(error);
     }
   }
+  
   function checkoutHandler() {
     
     

@@ -19,6 +19,9 @@
   display: flex;
   flex: 50%;
 }
+.navbarmid li {
+  cursor: pointer;
+}
 
 .navbarmid nav {
   display: flex;

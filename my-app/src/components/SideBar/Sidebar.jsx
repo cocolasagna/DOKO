@@ -8,6 +8,7 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import AutoAwesomeOutlinedIcon from "@mui/icons-material/AutoAwesomeOutlined";
 import CartContext from "../../store/cart-context";
 import NotificationContext from "../../store/notification-context";
+import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 
 function Sidebar(props) {
   const cartCtx = useContext(CartContext);
@@ -58,6 +59,14 @@ function Sidebar(props) {
           <Link to="/settings-page">
             <SettingsOutlinedIcon className={classes.icon} />
             <span>Settings</span>
+          </Link>
+        </div>
+        <hr />
+
+        <div className={classes.optionCover}>
+          <Link to="/bids-page">
+            <AttachMoneyOutlinedIcon className={classes.icon} />
+            <span>My Bids</span>
           </Link>
         </div>
         <hr />

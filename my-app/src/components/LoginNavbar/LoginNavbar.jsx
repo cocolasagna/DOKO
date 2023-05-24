@@ -8,7 +8,7 @@ function LoginNavbar(props) {
       </div>
 
       <div className="navbar-right">
-        <button className="navbar-button">{props.buttontext}</button>
+        <button className="navbar-button">Sign In</button>
       </div>
     </div>
   );

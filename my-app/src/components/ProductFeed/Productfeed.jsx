@@ -5,6 +5,7 @@ import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlin
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import ProductContext from "../../store/product-context";
 import CartContext from "../../store/cart-context";
+import BidContext from "../../store/bids-context";
 import NotificationContext from "../../store/notification-context";
 import RemoveShoppingCartOutlinedIcon from "@mui/icons-material/RemoveShoppingCartOutlined";
 import DoNotDisturbOnOutlinedIcon from "@mui/icons-material/DoNotDisturbOnOutlined";
@@ -15,6 +16,7 @@ import axios from "axios";
 
 function Productfeed() {
   const bidAmount = useRef();
+  const bidCtx = useContext(BidContext);
 
   const handleOnEnter = async (e) => {
     e.preventDefault();
@@ -97,6 +99,16 @@ function Productfeed() {
     }
   }
 
+  function submitHandler() {
+    console.log("Submit Clicked");
+    bidCtx.addBid({
+      id: productSelected.id,
+      image: productSelected.image,
+      productName: productSelected.productName,
+      price: productSelected.price,
+    });
+  }
+
   return (
     <div className={classes.productFeedWrapper}>
       <div className={classes.productWrapper}>
@@ -150,7 +162,11 @@ function Productfeed() {
                 placeholder="Enter Bid Amount"
                 ref={bidAmount}
               />
-              <button className={classes.submitBtn} type="submit">
+              <button
+                className={classes.submitBtn}
+                type="submit"
+                onClick={submitHandler}
+              >
                 Submit
               </button>
             </div>
