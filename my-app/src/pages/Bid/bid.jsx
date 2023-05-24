@@ -1,5 +1,5 @@
 import classes from "./bid.module.css";
-import SideBar from "../../components/SideBar/Sidebar";
+import SideBarSeller from "../../components/SideBarSeller/SidebarSeller";
 import MainNavbar from "../../components/MainNavbar/MainNavbar";
 
 import Homefeed from "../../components/HomeFeed/Homefeed";
@@ -15,7 +15,7 @@ function Home() {
     <>
       <MainNavbar />
       <div className={classes.bidContainer}>
-        <SideBar name= {userName } />
+        <SideBarSeller  />
         <Bidfeed/>
         
       </div>
