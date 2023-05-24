@@ -1,13 +1,14 @@
-import classes from "./Home.module.css";
+import classes from "./homeseller.module.css";
 import SidebarSeller from "../../components/SideBarSeller/SidebarSeller";
 import MainNavbar from "../../components/MainNavbar/MainNavbar";
 import HomefeedSeller from "../../components/HomeFeedSeller/HomefeedSeller";
-
+import UsernameSellerContext from "../../store/usernameseller-context";
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 
 function HomeSeller() {
   const [seller, setSeller] = useState();
+  const sellerusernameCtx = useContext(UsernameSellerContext);
 
   useEffect(() => {
     const fetchSeller = async () => {
@@ -18,11 +19,14 @@ function HomeSeller() {
     };
     fetchSeller();
   }, []);
+
+  sellerusernameCtx.sellername = seller;
+
   return (
     <>
       <MainNavbar />
       <div className={classes.homeContainer}>
-        <SidebarSeller name={seller} />
+        <SidebarSeller name={sellerusernameCtx.sellername} />
         <HomefeedSeller />
       </div>
     </>

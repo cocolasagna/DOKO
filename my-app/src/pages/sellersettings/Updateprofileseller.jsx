@@ -3,16 +3,16 @@ import SidebarSeller from "../../components/SideBarSeller/SidebarSeller";
 import MainNavbar from "../../components/MainNavbar/MainNavbar";
 import Updatefeedseller from "../../components/UpdateFeedSeller/Updatefeedseller";
 import { useContext } from "react";
-import UsernameContext from "../../store/username-context";
+import UsernameSellerContext from "../../store/usernameseller-context";
 
 function Updateprofileseller() {
-  const usernameCtx = useContext(UsernameContext);
+  const sellerusernameCtx = useContext(UsernameSellerContext);
 
   return (
     <>
       <MainNavbar />
       <div className={classes.updateContainer}>
-        <SidebarSeller name={usernameCtx.name} />
+        <SidebarSeller name={sellerusernameCtx.sellername} />
         <Updatefeedseller />
       </div>
     </>

@@ -21,10 +21,13 @@ function SidebarSeller(props) {
       </div>
 
       <div className={classes.optionsWrapper}>
-        <div className={classes.optionCover}>
-          <HomeOutlinedIcon className={classes.icon} />
-          <span>Home</span>
-        </div>
+        <Link to="/seller/dashboard">
+          <div className={classes.optionCover}>
+            <HomeOutlinedIcon className={classes.icon} />
+            <span>Home</span>
+          </div>
+        </Link>
+
         <hr />
 
         <Link to="/settings-page-seller">
