@@ -6,12 +6,13 @@ function Mybidslist(props) {
     <div className={classes.listCover}>
       <h1>My Bids</h1>
       <ul className={classes.list}>
-        {props.notification.map((n) => (
+        {props.data.map((n) => (
           <Mybidsitem
-            id={n.id}
-            image={n.image}
-            productName={n.productName}
-            price={n.price}
+            id={n._id}
+            image={n.product.image}
+            name = {n.product.name}
+            price={n.product.price}
+            bid = {n.product.bidAmount}
           />
         ))}
       </ul>

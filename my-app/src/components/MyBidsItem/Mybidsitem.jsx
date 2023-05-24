@@ -16,6 +16,7 @@ function Mybidsitem(props) {
           <div className={classes.infoDown}>
             <span>${props.price}</span>
           </div>
+          
         </div>
         <div className={classes.endContent}>
           <div className={classes.responseCover}></div>
