@@ -152,7 +152,10 @@ const offers = async (req,res)=>{
   try {
     const Seller = req.seller
     const sellerId = Seller.id
-    const offers= await BuyerBid.find({ seller: sellerId});
+    const offers= await BuyerBid.find({ seller: sellerId}).populate({
+      path:'product',
+       select: 'name price bid'
+  });
  console.log(offers)
   res.send({offers  });
   } catch (error) {

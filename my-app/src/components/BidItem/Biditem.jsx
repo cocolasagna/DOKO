@@ -31,10 +31,10 @@ function BidItem(props) {
                     <span>price:${props.price}</span>
                 </div>
                 <div className={classes.infoDown}>
-                    <span>Least amount: {props.least}</span>
+                    <span>Least amount: ${props.least}</span>
                 </div>
                 <div className={classes.infoDown}>
-                    <span>Bid recieved:{props.bid}</span>
+                    <span>Bid recieved:${props.bid}</span>
                     <button className={classes.addBtn}>
                         <CheckCircleIcon className={classes.icon}/>
                         

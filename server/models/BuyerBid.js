@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const BuyerBidSchema = new mongoose.Schema({
     user:{
         type: mongoose.Schema.Types.ObjectId, 
-        ref:'users', 
+        ref:'User', 
         
     },
   
         
     product: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref:'products', 
+                ref:'Product', 
                 required:true
     },
             
