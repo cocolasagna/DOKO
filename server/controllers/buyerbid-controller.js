@@ -44,8 +44,12 @@ const userBid = async(req,res)=>{
         const User = req.user
         const userId = User.id
         console.log("user:", userId)
-        const bids = await BuyerBid.find({user:userId})
-        res.send(bids)
+        const bids = await BuyerBid.find({user:userId}).populate({
+            path:'product',
+             select: 'name price  image'
+        });
+        res.send({bids:bids})
+        console.log(bids)
     }
     catch(err){
         console.log(err);
