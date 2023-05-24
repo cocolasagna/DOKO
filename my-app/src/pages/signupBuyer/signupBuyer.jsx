@@ -15,6 +15,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [phonenumber, setPhonenumber] = useState();
   const [name, setName] = useState("");
+  const [address , setAddress] = useState("")
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -24,6 +25,7 @@ function Signup() {
         email,
         password,
         phonenumber,
+        address
       });
       window.location.href = "/login";
     } catch (err) {
@@ -93,6 +95,7 @@ function Signup() {
                         type="text"
                         className="input-value"
                         placeholder="Enter Address"
+                        onChange={(event)=>setAddress(event.target.value)}
                       />
                     </div>
                   </div>

@@ -14,6 +14,7 @@ const ProductForm = () => {
   const category = useRef();
   const quantity = useRef();
   const bid = useRef();
+  const [imagePreview, setImagePreview] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,12 +65,10 @@ const ProductForm = () => {
       <div className="formBody">
         <div className="formBackground">
           <div className="formBlock">
-            <div className="productImg">
-            </div>
-
-            <div className="formBlockDesc">
+            <div className="formBlockLeft">
               <div className="ProductForm">
                 <h1 className="ProductTitle">Create Product</h1>
+
                 <form className="product-form" onSubmit={handleSubmit}>
                   <div className="product-box">
                     <div className="product-wrapper">
@@ -125,7 +124,7 @@ const ProductForm = () => {
                         type="number"
                         name="bid"
                         className="input-value"
-                        placeholder="Bid Ammount"
+                        placeholder="Bid Amount"
                         ref={bid}
                         required
                       />
@@ -169,19 +168,27 @@ const ProductForm = () => {
                   </div>
 
                   <div className="product-box">
-                    <label htmlFor="image" className="label">
+                    <label htmlFor="image" className="image-label">
                       Image
                     </label>
                     <input
                       type="file"
                       id="file"
                       accept=".png, .jpg, ,jpeg"
-                      className="input-file"
-                      onChange={(e) => setFile(e.target.files[0])}
+                      className="image-file"
+                      onChange={(e) => {
+                        setFile(e.target.files[0]);
+                        setImagePreview(URL.createObjectURL(e.target.files[0]));
+                      }}
                     />
                   </div>
                   <button className="submit-button">Submit</button>
                 </form>
+              </div>
+            </div>
+            <div className="formBlockRight">
+              <div className="productImg">
+                {imagePreview && <img src={imagePreview} alt="Product" />}
               </div>
             </div>
           </div>

@@ -10,8 +10,7 @@
 .formBlock {
   background-color: white;
   width: 60%;
-  height: 80%;
-  position: fixed;
+  height: 30%;
   top: calc(((100vh - 80%)) / 2);
   left: calc((100vw - 60%) / 2);
   border-radius: 2.2rem;
@@ -20,30 +19,43 @@
 }
 
 .formBlockLeft {
-  border: 1px solid red;
+  background-color: #edc1b783;
   width: 60%;
 }
 
 .formBlockRight {
-  border: 1px solid blue;
   width: 50%;
+  background-color: #c8a39b83;
+  height: 100%;
 }
 
-.ProductImg {
-  width: 45%;
-  border-radius: 2.2rem 0rem 0rem 2.2rem;
+.productImg {
+  position: relative;
+  top: 4%;
+  left: 5%;
+  min-height: 563px;
+  max-height: 563px;
 }
 
-.formBlockDesc {
-  width: 55%;
-  transition: box-shadow 1s;
-  border-radius: 0rem 2.2rem 2.2rem 0rem;
-  background-color: #edc1b783;
+.productImg img {
+  position: relative;
+  object-fit: fill;
+  width: 90%;
+  height: 100%;
+  border-radius: 20px;
+  border: 1px solid black;
+  min-height: 563px;
+  max-height: 563px;
 }
 
 .ProductTitle {
   font-weight: lighter;
   text-align: center;
+}
+
+.product-form {
+  position: relative;
+  left: 9%;
 }
 
 .product-box {
@@ -91,18 +103,26 @@ select {
   border: 0.5px solid black;
 }
 
-.input-file [type="file"] {
-  padding: 0.5rem;
-  border-radius: 30px;
-  background-color: #e96e494a;
-  transition: box-shadow 1s, background-color 1s;
-  border: 0.5px solid black;
-  cursor: pointer;
+.submit-button:hover {
+  box-shadow: 2px 2px 2px 2px rgba(63, 60, 60, 0.234);
+  background-color: #e267674a;
 }
 
 .categoryBox {
   border-radius: 10px;
   background-color: #e96e494a;
+}
+
+.image-file {
+  position: relative;
+  left: 3%;
+  top: 20%;
+}
+
+.image-label {
+  position: relative;
+  left: 1%;
+  top: 12%;
 }
 
 /* label {

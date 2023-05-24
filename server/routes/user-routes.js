@@ -9,5 +9,6 @@ Userrouter.post('/login' , controls.login)
 Userrouter.get('/allproduct',auth, controls.getallproduct)
 Userrouter.post('/logout',controls.logout)
 Userrouter.put('/updatepassword',auth,controls.updatePassword)
+Userrouter.patch('/updateprofile',auth, controls.updateprofile)
 
 module.exports = Userrouter; 

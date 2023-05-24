@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./pages/home/Home";
-
+import Sellersettings from "./pages/sellersettings/Sellersettings";
 import ProductForm from "./pages/ProductForm/ProductForm";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Login from "./pages/Login/Login";
@@ -22,13 +22,15 @@ import Search from "./pages/search/Search";
 import Updateprofile from "./pages/settings/Updateprofile";
 import Mybids from "./pages/mybids/Mybids";
 import { Route, Routes } from "react-router-dom";
-import Bid from './pages/Bid/bid';
+import Bid from "./pages/Bid/bid";
+import Changepasswordseller from "./pages/sellersettings/Changepasswordseller";
+import Updateprofileseller from "./pages/sellersettings/Updateprofileseller";
+
 function App() {
   return (
     <Routes>
       {/*<Route exact path = '/seller/dashboard' element = {<SellerDashboard/>}/> */}
       <Route path="/" element={<SignupBuyer />} />
-
       <Route path="/login" element={<LoginBuyer />} />
       <Route exact path="/seller/product/new" element={<ProductForm />} />
       <Route exact path="/product/:id" element={<ProductDetail />} />
@@ -36,8 +38,11 @@ function App() {
       <Route exact path="/seller/signup" element={<Signup />} />
       <Route exact path="/product/update/:id" element={<Update />} />
       <Route path="/settings-page" element={<Settings />} />
+      <Route path="/settings-page-seller" element={<Sellersettings />} />
       <Route path="/change-pw" element={<Changepassword />} />
+      <Route path="/change-pw-seller" element={<Changepasswordseller />} />
       <Route path="/update-profile" element={<Updateprofile />} />
+      <Route path="/update-profile-seller" element={<Updateprofileseller />} />
       <Route path="/search-page" element={<Search />} />
       <Route exact path="/seller/dashboard" element={<HomeSeller />} />
       <Route exact path="/seller/offers" element={<Bid />} />
