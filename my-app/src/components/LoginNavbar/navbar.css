@@ -21,23 +21,26 @@
 }
 
 .navbar-button {
-  width: 5rem;
-  height: 1.9rem;
+  width: 8%;
+  height: 90%;
   position: relative;
-  top: 10px;
-  left: calc(100vw - 42%);
+  top: 30%;
+  left: calc(100vw - 50%);
+  margin-right: 10px;
   background-color: #e96e494a;
-  transition: box-shadow 1s, background-color 1s;
+  transition: box-shadow 1s, background-color 1s, width 1s, height 1s;
   border: 0.5px solid black;
   border-radius: 20px;
   text-decoration: none;
-  color:black;
+  color: black;
 }
 
 .navbar-button:hover {
   cursor: pointer;
   box-shadow: 1px 1px 1px 1px rgba(37, 37, 37, 0.234);
   background-color: #e96e4969;
+  width: 9%;
+  height: 100%;
 }
 
 .navbar-options {

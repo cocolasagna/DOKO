@@ -36,9 +36,7 @@ function Login() {
 
   return (
     <>
-      <Link to="seller/signup">
-        <LoginNavbar buttontext="Sign In" />
-      </Link>
+      <LoginNavbar />
       <div className="body">
         <div className="background">
           <div className="center-block">
@@ -57,7 +55,6 @@ function Login() {
                   onSubmit={handleSubmit}
                   className="input-form"
                   autoComplete="new-password"
-                  
                 >
                   <div className="input-box">
                     <div className="inner-wrapper">
