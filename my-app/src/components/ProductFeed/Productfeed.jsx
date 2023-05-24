@@ -168,7 +168,7 @@ function Productfeed() {
               <button
                 className={classes.submitBtn}
                 type="submit"
-                onClick={submitHandler}
+                
               >
                 Submit
               </button>

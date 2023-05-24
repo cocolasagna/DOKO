@@ -22,6 +22,7 @@ useEffect(()=>{
   })
 },[])
 console.log(offers)
+
   return (
     <div className={classes.homeWrapper}>
       <Advert />
