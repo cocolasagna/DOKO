@@ -75,8 +75,7 @@ function BidItem(props) {
                     </button>
                     <button onClick = {handleClickReject} className={classes.addBtn}><CancelIcon className={classes.icon}/></button>
                 </div>
-                
-
+            
                 
                 </div>
             </li>

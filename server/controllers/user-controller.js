@@ -3,7 +3,7 @@ const User = require("../models/User");
 const Cookies = require('js-cookie')
 const jwt = require("jsonwebtoken");
 const Product = require("../models/Product");
-
+const bcrypt = require('bcrypt')
 //Register an User
 const register = async (req,res)=>{
     const user = new User(req.body)
@@ -21,6 +21,23 @@ const register = async (req,res)=>{
 
 }
 
+const updatePassword = async(req,res)=>{
+    const Buyer = req.user
+    const buyerId = Buyer.id
+    const newPassword = req.body.newPassword
+    const hash =  bcrypt.hashSync(newPassword, 8)
+    try {
+        const user = await User.findByIdAndUpdate(buyerId,{
+            $set:{password: hash}
+        })
+        console.log('password changed')
+    } catch (error) {
+        console.log(error)
+    }
+   
+ 
+  
+}
 
 // Login a User
 
@@ -73,4 +90,4 @@ const getallproduct = async (req,res)=>{
 }
 
 
-module.exports = {register, login , getallproduct , logout}
+module.exports = {register, login , getallproduct , logout , updatePassword}
