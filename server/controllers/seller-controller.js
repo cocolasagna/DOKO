@@ -5,6 +5,7 @@ const Seller = require('../models/Seller')
 var cookieParser = require('cookie-parser')
 const jwt = require("jsonwebtoken");
 const auth = require("./auth-controller");
+const BuyerBid = require('../models/BuyerBid')
 
 const uuidv4 = require('uuid').v4
 const sessions ={}
@@ -146,5 +147,17 @@ const updateproduct = async (req, res) => {
      
     }
 
+
+const offers = async (req,res)=>{
+  try {
+    const Seller = req.seller
+    const sellerId = Seller.id
+    const offers= await BuyerBid.find({ seller: sellerId});
+ console.log(offers)
+  res.send({offers  });
+  } catch (error) {
     
-module.exports = {register ,login ,  product , addproduct, updateproduct, deleteproduct , productdetails , logout}
+  }
+}
+    
+module.exports = {register ,login ,  product , addproduct, updateproduct, deleteproduct , productdetails , logout , offers}
