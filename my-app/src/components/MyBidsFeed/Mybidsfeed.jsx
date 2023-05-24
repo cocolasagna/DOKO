@@ -38,7 +38,7 @@ console.log(bid)
     content = <span className={classes.displayText}>No New Bids</span>;
   } else {
     content = <Mybidslist title="My Bids" data={bid} />;
-  }
+  }// my bid feed
 
   return (
     <div className={classes.myBidFeedWrapper}>
