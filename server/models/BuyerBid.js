@@ -26,6 +26,10 @@ const BuyerBidSchema = new mongoose.Schema({
     price:{
         type:Number,
         required: true
+    } , 
+
+    bidAccept: {
+        type:Boolean
     }
 
     

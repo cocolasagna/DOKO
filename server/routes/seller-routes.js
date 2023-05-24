@@ -16,5 +16,6 @@ Sellerrouter.post('/addproduct',auth,  controls.addproduct);
 Sellerrouter.post('/login' , controls.login)
 Sellerrouter.post('/logout',controls.logout)
 Sellerrouter.get('/offers',auth , controls.offers)
+Sellerrouter.patch('/bid/update/:id',auth, controls.bidAccept)
 
 module.exports = Sellerrouter; 

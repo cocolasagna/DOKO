@@ -19,6 +19,7 @@ function BidList(props) {
            price = {p.price}
            name = {p.product.name}
            least = {p.product.bid}
+           image = {p.product.image}
           />
         ))}
       </ul>
