@@ -47,9 +47,9 @@ const userBid = async(req,res)=>{
         const bids = await BuyerBid.find({user:userId}).populate({
             path:'product',
              select: 'name price  image bidAccept'
-        });
+        }).sort({ timestamp: -1 });
         res.send({bids:bids})
-        console.log(bids)
+    
     }
     catch(err){
         console.log(err);

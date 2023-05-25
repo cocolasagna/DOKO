@@ -30,6 +30,11 @@ const BuyerBidSchema = new mongoose.Schema({
 
     bidAccept: {
         type:Boolean
+    }, 
+    timestamp:{
+        type:Date,
+        default:Date.now
+
     }
 
     

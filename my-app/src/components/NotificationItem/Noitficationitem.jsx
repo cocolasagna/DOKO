@@ -35,7 +35,7 @@ function Notificationitem(props) {
               <span className={classes.price}> ${props.price}</span>
             </div>
             <div className={classes.infoDownBid}>
-              <span>Bid Amount: ${props.price}</span>
+              <span>Bid Amount: ${props.bidAmount}</span>
             </div>
           </div>
         </div>
