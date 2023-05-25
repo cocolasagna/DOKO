@@ -4,3 +4,40 @@
   position: relative;
   z-index: 0;
 }
+
+.icon {
+  font-size: 30px !important;
+}
+
+.sortNameBtn {
+  position: relative;
+  height: 50px;
+  width: 4%;
+  right: 6%;
+  top: 130px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e96e494a;
+  cursor: pointer;
+}
+
+.sortPriceBtn {
+  position: relative;
+  height: 50px;
+  width: 4%;
+  left: 85.5%;
+  top: 130px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e96e494a;
+  cursor: pointer;
+}
+
+.titleContainer {
+  justify-content: space-between;
+  display: flex;
+}
