@@ -17,10 +17,11 @@ function Mybidsitem(props) {
 
           <div className={classes.infoDown}>
             <div className={classes.infoDownPrice}>
+              
               <span className={classes.price}> ${props.price}</span>
             </div>
             <div className={classes.infoDownBid}>
-              <span>Bid Amount: ${props.price}</span>
+              <span>Bid Amount: ${props.bid}</span>
             </div>
           </div>
         </div>
