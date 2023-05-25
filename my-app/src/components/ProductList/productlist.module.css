@@ -8,6 +8,39 @@
   padding: 1%;
 }
 
+.titleContainer {
+  justify-content: space-between;
+  display: flex;
+}
+
+.sortNameBtn {
+  position: relative;
+  height: 50px;
+  width: 4%;
+  right: 2%;
+  top: 16px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e96e494a;
+  cursor: pointer;
+}
+
+.sortPriceBtn {
+  position: relative;
+  height: 50px;
+  width: 4%;
+  left: 36%;
+  top: 16px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e96e494a;
+  cursor: pointer;
+}
+
 .list {
   position: relative;
   /* border: 2px solid red; */
@@ -44,4 +77,8 @@
 .pagination .pagenum:hover {
   background-color: #b5948c83;
   /* color: white; */
+}
+
+.icon {
+  font-size: 20px !important;
 }
