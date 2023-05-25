@@ -10,6 +10,12 @@
   transition: width 1s, box-shadow 1s, height 1s;
 }
 
+.notificationCover:hover {
+  width: 40%;
+  box-shadow: 1px 1px 1px 1px rgba(115, 113, 113, 0.5);
+  height: 20%;
+}
+
 .startContent {
   /* border: 2px solid green; */
   flex: 20%;
@@ -54,16 +60,37 @@
   height: 40%;
   width: 18.5rem;
   position: absolute;
-  bottom: 10%;
+  bottom: 15%;
 }
 
-.infoDown span {
-  padding: 2%;
-  font-weight: 500;
-  position: absolute;
-  bottom: 0;
-  font-weight: 10;
-  font-size: 109%;
+.infoDownBid {
+  /* border: 1px solid blue; */
+  /* width: 70%; */
+  height: 50%;
+  position: relative;
+  top: 20%;
+}
+
+.infoDownBid span {
+  position: relative;
+  font-weight: 400;
+  font-size: 95%;
+  left: 2%;
+}
+
+.infoDownPrice {
+  /* border: 1px solid red; */
+  /* width: 34%; */
+  height: 50%;
+  position: relative;
+  bottom: 5%;
+}
+
+.price {
+  font-weight: bold;
+  position: relative;
+  font-size: 120%;
+  margin-left: 2%;
 }
 
 .endContent {
@@ -82,10 +109,4 @@
   font-size: 300% !important;
   position: relative;
   top: 20%;
-}
-
-.notificationCover:hover {
-  width: 40%;
-  box-shadow: 1px 1px 1px 1px rgba(115, 113, 113, 0.5);
-  height: 20%;
 }

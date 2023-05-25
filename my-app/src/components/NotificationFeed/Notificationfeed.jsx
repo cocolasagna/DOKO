@@ -1,15 +1,14 @@
 import classes from "./notificationfeed.module.css";
 import Endblock from "../EndBlock/Endblock";
-import { useContext, useEffect , useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Notificationlist from "../NotificationList/Notificationlist";
-
+import Advert from "../Advert/Advert";
 import NotificationContext from "../../store/notification-context";
 import axios from "axios";
 let content;
 
 function NotificationFeed() {
-
-  const [bid, setBid] = useState([])
+  const [bid, setBid] = useState([]);
 
   useEffect(() => {
     axios
@@ -18,7 +17,7 @@ function NotificationFeed() {
       })
       .then((res) => {
         setBid(res.data.bids);
-       console.log(res.data.bids)
+        console.log(res.data.bids);
       })
       .catch((err) => {
         console.log(err);
@@ -26,14 +25,15 @@ function NotificationFeed() {
   }, []);
   const notiCtx = useContext(NotificationContext);
 
-  if (!bid  || bid.length === 0) {
-    content = <span className={classes.displayText}>No New Notifications</span>;
+  if (!bid || bid.length === 0) {
+    content = <span className={classes.displayText}>No New Bids</span>;
   } else {
-    content = <Notificationlist  Bid = {bid} />;
+    content = <Notificationlist Bid={bid} />;
   }
 
   return (
     <div className={classes.notificationWrapper}>
+      <Advert />
       <div className={classes.content}>{content}</div>
 
       <Endblock />

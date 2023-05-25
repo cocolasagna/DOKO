@@ -39,12 +39,13 @@ function SidebarSeller(props) {
 
         <hr />
 
-        <div className={classes.optionCover}>
-          <Link to="/seller/product/new">
+        <Link to="/seller/product/new">
+          <div className={classes.optionCover}>
             <AddBusinessOutlinedIcon className={classes.icon} />
             <span>Create Product</span>
-          </Link>
-        </div>
+          </div>
+        </Link>
+
         <hr />
         <div className={classes.optionCover}>
           <Link to="/seller/offers">

@@ -1,4 +1,4 @@
-.formBackground{
+.formBackground {
   background-color: #e96e494a;
   width: 100%;
   height: calc(100vh - 42px);
@@ -7,7 +7,7 @@
   position: fixed;
 }
 
-.formBlock{
+.formBlock {
   background-color: white;
   width: 60%;
   height: 80%;
@@ -16,27 +16,27 @@
   left: calc((100vw - 60%) / 2);
   border-radius: 2.2rem;
 
- display: flex;
+  display: flex;
 }
 
-.ProductImg{
+.ProductImg {
   width: 45%;
   border-radius: 2.2rem 0rem 0rem 2.2rem;
 }
 
-.formBlockDesc{
+.formBlockDesc {
   width: 55%;
   transition: box-shadow 1s;
   border-radius: 0rem 2.2rem 2.2rem 0rem;
   background-color: #edc1b783;
 }
 
-.ProductTitle{
+.ProductTitle {
   font-weight: lighter;
   text-align: center;
 }
 
-.product-box{
+.product-box {
   /* border: 1px solid black; */
   padding: 0.3rem;
   margin-right: 4rem;
@@ -50,25 +50,25 @@
   display: flex;
 }
 
-.product-box:hover{
+.product-box:hover {
   box-shadow: 2px 2px 2px 2px rgba(63, 60, 60, 0.234);
 }
 
-.product-wrapper{
+.product-wrapper {
   display: flex;
   margin-left: 5px;
   margin-top: 2px;
   padding: 2px;
 }
 
-select{
+select {
   display: flex;
   margin-left: 5px;
   margin-top: 2px;
   padding: 2px;
 }
 
-.submit-button{
+.submit-button {
   padding: 0.3rem;
   margin-right: 4rem;
   margin-left: 5.3rem;
@@ -81,19 +81,14 @@ select{
   border: 0.5px solid black;
 }
 
-.input-file [type='file'] {
+.input-file [type="file"] {
   padding: 0.3rem;
   border-radius: 20px;
   background-color: #e96e494a;
   transition: box-shadow 1s, background-color 1s;
   border: 0.5px solid black;
   cursor: pointer;
-  
 }
-
-
-
-
 
 /* label {
   display: flex;
