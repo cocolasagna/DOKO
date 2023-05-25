@@ -1,4 +1,27 @@
-.homeWrapper {
+.homeWrapperseller {
+  border: 1px solid red;
   flex: 80%;
   overflow-y: scroll;
+}
+.app{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(3fr,1);
+  gap: 20px;
+  position: relative;
+  border: 2px solid black;
+  left: 0%;
+  height: 85%;
+  width: 75%;
+  align-items: center;
+  margin: 2.5%;
+  justify-content: center;
+  background-color: rgba(255, 231, 231, 0.905);
+  border-radius: 35px;
 }

@@ -5,6 +5,8 @@ import Endblock from "../EndBlock/Endblock";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import BarChart from "../Chart/BarChart";
+import MuiTable from "../Table/table";
 /*
 const products = [
   // ELectronics = 1  Sports = 2 Food =3 Clothing = 4 Furniture = 5
@@ -77,10 +79,18 @@ function HomefeedSeller() {
     fetchProducts();
   }, []);
   return (
-    <div className={classes.homeWrapper}>
+    <div className={classes.homeWrapperseller}>
       <Advert />
 
       <ProductlistSeller product={products} />
+      <div className={classes.app}>
+        <h2>Analytics</h2>
+        <div className={classes.wrapper}>
+          <div className={classes.barContent}><BarChart /></div>
+          
+          <div className={classes.graphContent}><MuiTable/></div>
+         </div> 
+      </div>
       <Endblock />
     </div>
   );
