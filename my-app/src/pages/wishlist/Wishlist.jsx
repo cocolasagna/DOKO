@@ -1,5 +1,5 @@
 import classes from "./wishlist.module.css";
-import MainNavbar from "../../components/MainNavbar/MainNavbar";
+import MainNavbarBuyer from "../../components/MainNavbarBuyer/MainNavbarBuyer";
 import SideBar from "../../components/SideBar/Sidebar";
 import Wishlistfeed from "../../components/WishlistFeed/Wishlistfeed";
 import { useContext } from "react";
@@ -10,7 +10,7 @@ function Wishlist() {
 
   return (
     <>
-      <MainNavbar />
+      <MainNavbarBuyer />
       <div className={classes.wishListContainer}>
         <SideBar name={usernameCtx.name} />
         <Wishlistfeed />

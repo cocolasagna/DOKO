@@ -1,6 +1,6 @@
 import classes from "./mybids.module.css";
 import Sidebar from "../../components/SideBar/Sidebar";
-import MainNavbar from "../../components/MainNavbar/MainNavbar";
+import MainNavbarBuyer from "../../components/MainNavbarBuyer/MainNavbarBuyer";
 import Mybidsfeed from "../../components/MyBidsFeed/Mybidsfeed";
 import { useContext } from "react";
 import UsernameContext from "../../store/username-context";
@@ -10,7 +10,7 @@ function Mybids() {
 
   return (
     <>
-      <MainNavbar />
+      <MainNavbarBuyer />
       <div className={classes.myBidsContainer}>
         <Sidebar name={usernameCtx.name} />
         <Mybidsfeed />

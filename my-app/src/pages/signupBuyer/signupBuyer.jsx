@@ -43,7 +43,7 @@ function Signup() {
             <div className="center-block-left">
               <img
                 className="loginImage"
-                src="./public/images/dokologovertical.png"
+                src="/images/dokologovertical.png"
                 alt=""
               />
             </div>

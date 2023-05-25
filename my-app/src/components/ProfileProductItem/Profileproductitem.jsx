@@ -13,6 +13,7 @@ function Profileproductitem(props) {
   const itemisWished = cartCtx.itemInWish(props.id);
 
   function productPageHandler() {
+    
     productCtx.productClicked = {
       id: props.id,
       image: props.image,
@@ -43,13 +44,13 @@ function Profileproductitem(props) {
   //   });
   //   notiCtx.rejectNotification();
   // }
-
+  const PF = 'http://localhost:5000/images/'
   return (
     <div className={classes.itemCover}>
       <li>
         <Link to="/product-page">
           <div className={classes.itemImage} onClick={productPageHandler}>
-            <img src={props.image} alt="" />
+            <img src={PF + props.image} alt="" />
           </div>
         </Link>
 
