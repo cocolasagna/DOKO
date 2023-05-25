@@ -117,4 +117,20 @@ const getallproduct = async (req,res)=>{
 }
 
 
-module.exports = {register, login , getallproduct , logout , updatePassword , updateprofile}
+const userdetails = async(req,res)=>{
+    try {
+        const user = req.user
+        const userId = user.id
+        const  userdetail= await User.findById(userId)
+        const userdetails = {
+            address :userdetail.address,
+            phonenumber: userdetail.phonenumber
+        }
+       // console.log(userdetails)
+        res.send(userdetails)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+module.exports = {register, login ,userdetails, getallproduct , logout , updatePassword , updateprofile}
