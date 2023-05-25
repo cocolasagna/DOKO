@@ -9,6 +9,10 @@ const BuyerBid = require('../models/BuyerBid')
 const bcrypt = require('bcrypt')
 const uuidv4 = require('uuid').v4
 const sessions ={}
+const Order = require('../models/Order')
+const mongoose = require('mongoose');
+
+
 //register seller
 const register = async (req,res)=>{
     const user = new Seller(req.body)
@@ -152,11 +156,11 @@ const offers = async (req,res)=>{
   try {
     const Seller = req.seller
     const sellerId = Seller.id
-    const offers= await BuyerBid.find({ seller: sellerId}).populate({
+    const offers= await BuyerBid.find({ seller: sellerId , bidAccept : undefined}).populate({
       path:'product',
        select: 'name price bid image'
   });
- console.log(offers)
+ //console.log(offers)
   res.send({offers  });
   } catch (error) {
     
@@ -229,4 +233,94 @@ const bidAccept = async(req,res)=>{
     }
 
 
-module.exports = {register ,login ,  updateprofile ,product , addproduct, updateproduct, deleteproduct , productdetails , updatePassword,logout , offers , bidAccept}
+   
+
+
+
+// Send the data to the frontend
+
+const selleranalytics = async(req,res)=>{
+
+      const seller = req.seller
+      const sellerId = seller._id 
+      try {
+        const totalSales = await Order.aggregate([
+          {
+            $match: {
+              'productItems.seller': mongoose.Types.ObjectId(sellerId)
+            }
+          },
+          {
+            $unwind: '$productItems'
+          },
+          {
+            $group: {
+              _id: null,
+              totalSales: { $sum: { $multiply: ['$productItems.price', '$productItems.quantity'] } }
+            }
+          }
+        ]);
+    
+        const salesByCategory = await Order.aggregate([
+          {
+            $match: {
+              'productItems.seller': mongoose.Types.ObjectId(sellerId)
+            }
+          },
+          {
+            $unwind: '$productItems'
+          },
+          {
+            $lookup: {
+              from: 'products',
+              localField: 'productItems.id',
+              foreignField: '_id',
+              as: 'product'
+            }
+          },
+          {
+            $unwind: '$product'
+          },
+          {
+            $group: {
+              _id: '$product.category',
+              categorySales: { $sum: { $multiply: ['$productItems.price', '$productItems.quantity'] } }
+            }
+          }
+        ]);
+    
+        res.send( {
+          totalSales: totalSales[0]?.totalSales || 0,
+          salesByCategory
+        })
+        console.log('a',totalSales)
+        console.log('b',salesByCategory)
+      } catch (error) {
+        console.error(error);
+        throw error;
+      }
+    }
+  
+
+
+const sellertableanalytics = async(req,res)=>{
+
+  try {
+    const Seller = req.seller
+    const sellerId = Seller.id
+    const offers= await BuyerBid.find({ seller: sellerId, bidAccept:true}).populate({
+      path:'product',
+       select: 'name price bid image category'
+  });
+
+   // console.log(offers)
+    res.send({offers  });
+  
+
+  } catch (error) {
+    
+  }
+}
+    
+
+module.exports = {register ,login ,  updateprofile ,product , addproduct, updateproduct, deleteproduct , productdetails , selleranalytics, updatePassword,logout , offers , sellertableanalytics,bidAccept}
