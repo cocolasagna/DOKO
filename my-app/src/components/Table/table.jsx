@@ -12,12 +12,23 @@ import {
 import { useState } from 'react';
 
 export const MuiTable = (props) => {
-  const total = props.analysis.reduce((sum, row) => sum + row.bidAmount, 0);
+  const categoryTotals = {};
+  let totalSales = 0;
+
+  props.analysis.forEach((row) => {
+    const category = row.product.category;
+    if (!categoryTotals[category]) {
+      categoryTotals[category] = row.bidAmount;
+    } else {
+      categoryTotals[category] += row.bidAmount;
+    }
+    totalSales += row.bidAmount;
+  });
 
   return (
     <TableContainer component={Paper} sx={{ maxHeight: '400px', backgroundColor: "#eba28c4a" }}>
       <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', padding: '8px' }}>
-        Total Sales: {total}
+        Total Sales: {totalSales}
       </Typography>
       <Table aria-label='Items Sold' stickyHeader>
         <TableHead>
@@ -38,6 +49,12 @@ export const MuiTable = (props) => {
               <TableCell>{row.product.category}</TableCell>
               <TableCell>{row.price}</TableCell>
               <TableCell align='center'>{row.bidAmount}</TableCell>
+            </TableRow>
+          ))}
+          {Object.entries(categoryTotals).map(([category, total]) => (
+            <TableRow key={category}>
+              <TableCell colSpan={3} align='right'>Total ({category}):</TableCell>
+              <TableCell align='center'>{total}</TableCell>
             </TableRow>
           ))}
         </TableBody>
