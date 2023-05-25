@@ -1,8 +1,7 @@
 import classes from "./productlist.module.css";
 import Productitem from "../ProductItem/Productitem";
 import ReactPaginate from "react-paginate";
-import AbcOutlinedIcon from "@mui/icons-material/AbcOutlined";
-import PriceChangeOutlinedIcon from "@mui/icons-material/PriceChangeOutlined";
+
 import { useState, useEffect } from "react";
 
 function Productlist(props) {
@@ -37,16 +36,10 @@ function Productlist(props) {
   return (
     <>
       <div className={classes.listCover} key={props.id}>
-        <div className={classes.titleContainer}>
-          <h1>{props.title}</h1>
-          <button className={classes.sortPriceBtn}>
-            <AbcOutlinedIcon className={classes.icon} />
-          </button>
-          <button className={classes.sortNameBtn}>
-            <PriceChangeOutlinedIcon className={classes.icon} />
-          </button>
-        </div>
-
+      
+          <h1 className={classes.title}>{props.title}</h1>
+         
+        
         <ul className={classes.list}>
           {currentItems.map((p) => (
             <Productitem

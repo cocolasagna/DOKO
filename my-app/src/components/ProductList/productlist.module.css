@@ -8,12 +8,16 @@
   padding: 1%;
 }
 
-.titleContainer {
-  justify-content: space-between;
-  display: flex;
+.title{
+  width: 50%;
 }
 
-.sortNameBtn {
+/* .titleContainer {
+  justify-content: space-between;
+  display: flex;
+} */
+
+/* .sortNameBtn {
   position: relative;
   height: 50px;
   width: 4%;
@@ -39,7 +43,7 @@
   align-items: center;
   background-color: #e96e494a;
   cursor: pointer;
-}
+} */
 
 .list {
   position: relative;
@@ -79,6 +83,3 @@
   /* color: white; */
 }
 
-.icon {
-  font-size: 30px !important;
-}
