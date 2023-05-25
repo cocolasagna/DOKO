@@ -108,9 +108,6 @@ function Productfeed() {
     }
   }
 
-  function submitHandler() {
-  
-  }
 
   return (
     <div className={classes.productFeedWrapper}>
