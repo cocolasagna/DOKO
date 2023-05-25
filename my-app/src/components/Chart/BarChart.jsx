@@ -5,6 +5,7 @@ import { Bar } from 'react-chartjs-2';
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 function BarChart(props) {
+  console.log('aaa',props.analysis)
   const categorySales = props.analysis.map(item => item.categorySales);
   const labels = props.analysis.map(item => item._id);
 

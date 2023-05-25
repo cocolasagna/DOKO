@@ -3,11 +3,12 @@ import { useContext } from "react";
 import GavelOutlinedIcon from "@mui/icons-material/GavelOutlined";
 
 function Mybidsitem(props) {
+  const PF = "http://localhost:5000/images/";
   return (
     <li>
       <div className={classes.myBidsItemCover}>
         <div className={classes.startContent}>
-          <img src={props.image} alt="" />
+          <img src={PF + props.image} alt="" />
         </div>
         <div className={classes.midContent}>
           <div className={classes.infoUp}>

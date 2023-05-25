@@ -60,7 +60,7 @@ function BidItem(props) {
         <li>
           <Link to="/product-page">
             <div className={classes.itemImage}>
-              <img src="" alt="" />
+              <img src={PF + props.image} alt="" />
             </div>
           </Link>
   
