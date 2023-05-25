@@ -21,7 +21,6 @@ function Productlist(props) {
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(data.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(data.length / itemsPerPage));
-   
   }, [itemOffset, itemsPerPage, data]);
 
   // Invoke when user click to request another page.
@@ -35,7 +34,7 @@ function Productlist(props) {
 
   return (
     <>
-      <div className={classes.listCover} key = {props.id}>
+      <div className={classes.listCover} key={props.id}>
         <h1>{props.title}</h1>
         <ul className={classes.list}>
           {currentItems.map((p) => (
@@ -44,8 +43,8 @@ function Productlist(props) {
               image={p.image}
               productName={p.name}
               price={p.price}
-              description = {p.description}
-             seller = {p.seller._id}
+              description={p.description}
+              seller={p.seller._id}
             />
           ))}
         </ul>

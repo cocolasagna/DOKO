@@ -2,13 +2,13 @@ import classes from "./sidebar.module.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
-import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
+import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined"; 
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import AutoAwesomeOutlinedIcon from "@mui/icons-material/AutoAwesomeOutlined";
 import CartContext from "../../store/cart-context";
 import NotificationContext from "../../store/notification-context";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
+import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 
 function Sidebar(props) {
   const cartCtx = useContext(CartContext);
@@ -48,9 +48,8 @@ function Sidebar(props) {
 
         <div className={classes.optionCover}>
           <Link to="/notification-page">
-            <NotificationsNoneOutlinedIcon className={classes.icon} />
-            <span>Notifications</span>
-            <span className={classes.badge}>{notiCtx.totalNotifications}</span>
+            <AccessTimeOutlinedIcon className={classes.icon} />
+            <span>Bid Status</span>
           </Link>
         </div>
         <hr />

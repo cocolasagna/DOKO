@@ -9,22 +9,25 @@ import { NotificationContextProvider } from "./store/notification-context";
 import { ProductContextProvider } from "./store/product-context";
 import { BidContextProvider } from "./store/bids-context";
 import { UsernameContextProvider } from "./store/username-context";
+import { UsernameSellerContextProvider } from "./store/usernameseller-context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <UsernameContextProvider>
-    <BidContextProvider>
-      <ProductContextProvider>
-        <NotificationContextProvider>
-          <HistoryContextProvider>
-            <CartContextProvider>
-              <BrowserRouter>
-                <App />
-              </BrowserRouter>
-            </CartContextProvider>
-          </HistoryContextProvider>
-        </NotificationContextProvider>
-      </ProductContextProvider>
-    </BidContextProvider>
-  </UsernameContextProvider>
+  <UsernameSellerContextProvider>
+    <UsernameContextProvider>
+      <BidContextProvider>
+        <ProductContextProvider>
+          <NotificationContextProvider>
+            <HistoryContextProvider>
+              <CartContextProvider>
+                <BrowserRouter>
+                  <App />
+                </BrowserRouter>
+              </CartContextProvider>
+            </HistoryContextProvider>
+          </NotificationContextProvider>
+        </ProductContextProvider>
+      </BidContextProvider>
+    </UsernameContextProvider>
+  </UsernameSellerContextProvider>
 );

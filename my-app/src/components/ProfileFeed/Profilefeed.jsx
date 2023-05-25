@@ -1,16 +1,19 @@
 import classes from "./profilefeed.module.css";
-import Advert from "../Advert/Advert";
 import Endblock from "../EndBlock/Endblock";
+import Userinfo from "../UserInfo/Userinfo";
 import Profileproductlist from "../ProfileProductList/Profileproductlist";
 import { useContext } from "react";
 import HistoryContext from "../../store/history-context";
+import UsernameContext from "../../store/username-context";
+
 function Profilefeed() {
   const historyCtx = useContext(HistoryContext);
+  const usernameCtx = useContext(UsernameContext);
   const history = JSON.parse(localStorage.getItem("history"));
   console.log("data", history);
   let content;
 
-  if (!history || history.length === 0) { 
+  if (!history || history.length === 0) {
     content = <span className={classes.displayText}>No Items Bought Yet.</span>;
   } else {
     content = <Profileproductlist title="Recent Orders" data={history} />;
@@ -18,7 +21,12 @@ function Profilefeed() {
 
   return (
     <div className={classes.profileFeedWrapper}>
-      <Advert />
+      <Userinfo
+        name={usernameCtx.name}
+        address="Lazimpat,Kathmandu"
+        number="9869577154"
+      />
+      <hr className={classes.line}/>
       <div className={classes.profileContent}>{content}</div>
       <Endblock />
     </div>
