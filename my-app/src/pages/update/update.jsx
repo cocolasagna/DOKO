@@ -20,13 +20,24 @@ function UpdateForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
      
-    const updateProduct = {
-      name : name.current.value,
-      description : description.current.value,
-      price: price.current.value , 
-      quantity :quantity.current.value,
-      bid :bid.current.value,
-      category:category.current.value
+    const updateProduct = {}
+    if (name.current.value) {
+      updateProduct.name = name.current.value;
+    }
+    if (description.current.value) {
+      updateProduct.description = description.current.value;
+    }
+    if (price.current.value) {
+      updateProduct.price = price.current.value;
+    }
+    if (quantity.current.value) {
+      updateProduct.quantity = quantity.current.value;
+    }
+    if (bid.current.value) {
+      updateProduct.bid = bid.current.value;
+    }
+    if (category.current.value) {
+      updateProduct.category = category.current.value;
     }
     
     
@@ -89,7 +100,7 @@ function UpdateForm() {
                           placeholder="Title..."
                          ref = {name}
                           
-                          required
+                          
                         />
   
                       </div>
@@ -104,7 +115,7 @@ function UpdateForm() {
                           placeholder="Price"
                           ref = {price}
                          
-                          required
+                          
                         />
   
                       </div>
@@ -118,7 +129,7 @@ function UpdateForm() {
                           className="input-value"
                           placeholder="Description"
                           ref = {description}
-                          required
+                          
                         />
   
                       </div>
@@ -132,7 +143,7 @@ function UpdateForm() {
                           className="input-value"
                           placeholder="Bid Ammount"
                           ref = {bid}
-                          required
+                          
                         />
   
                       </div>
@@ -165,7 +176,7 @@ function UpdateForm() {
                           className="input-value"
                           placeholder="quantity"
                             ref = {quantity}
-                          required
+                          
                         />
   
                       </div>

@@ -94,28 +94,31 @@ const addproduct = async(req,res)=>{
     }
   };
 
-const updateproduct = async (req, res) => {
+  const updateproduct = async (req, res) => {
     const updates = Object.keys(req.body);
-    const allowedUpdates = ["name", "description", "price", "image" , "quantity", "category", "bid"];
-    const isValidOperation = updates.every((update) =>
-    allowedUpdates.includes(update)
-    );
-    if (!isValidOperation) {
-    return res.status(400).send({ error: "Invalid updates" });
+    const allowedUpdates = ["name", "description", "price", "image", "quantity", "category", "bid"];
+    const invalidUpdates = updates.filter(update => !allowedUpdates.includes(update));
+  
+    if (invalidUpdates.length > 0) {
+      return res.status(400).send({ error: "Invalid updates" });
     }
+  
     try {
-    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-    });
-    if (!product) {
-    return res.status(404).send();
-    }
-    res.send(product);
+      const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true,
+      });
+  
+      if (!product) {
+        return res.status(404).send();
+      }
+  
+      res.send(product);
     } catch (error) {
-    res.status(400).send(error);
+      res.status(400).send(error);
     }
-    }
+  }
+  
 
 
     const deleteproduct = async (req,res)=>{
