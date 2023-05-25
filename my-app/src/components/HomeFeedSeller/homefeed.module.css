@@ -3,37 +3,49 @@
   flex: 80%;
   overflow-y: scroll;
 }
-.app{
+
+.app {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.wrapper{
+.wrapper {
   display: flex;
-  grid-template-columns: repeat(3fr,1);
-  gap: 20px;
-  position: relative;
-  /* border: 2px solid black; */
-  left: 0%;
-  height: 85%;
-  width: 75%;
+  justify-content: space-between;
   align-items: center;
   margin: 2.5%;
-  justify-content: space-around;
-  /* background-color: rgba(255, 231, 231, 0.905); */
-  border-radius: 35px;
 }
 
-
-.graphContent{
-  position: relative;
+.graphContent {
   border: 1px solid black;
-  padding:1%;
-
+  padding: 1%;
+  flex: 1;
+  margin-right: 20px; /* Add right margin to create space between the divs */
 }
 
-.barContent{
- position: relative;
+.barContent {
+  flex: 1;
+}
+
+.graphContent table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.graphContent th,
+.graphContent td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+.graphContent th {
+  background-color: #b5948c83;
+  font-weight: bold;
+}
+
+.graphContent tr:last-child td {
+  font-weight: bold;
 }
