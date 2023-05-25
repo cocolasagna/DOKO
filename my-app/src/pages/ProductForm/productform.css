@@ -32,8 +32,8 @@
   position: relative;
   top: 10%;
   left: 5%;
-  min-height: 563px;
-  max-height: 563px;
+  min-height: 550px;
+  max-height: 550px;
 }
 
 .productImg img {
@@ -43,8 +43,8 @@
   height: 100%;
   border-radius: 20px;
   /* border: 1px solid black; */
-  min-height: 563px;
-  max-height: 563px;
+  min-height: 550px;
+  max-height: 550px;
 }
 
 .ProductForm {

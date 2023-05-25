@@ -21,3 +21,8 @@
   border-radius: 30px;
   background-color: #b5948c83;
 }
+
+.line {
+  position: relative;
+  top: 5%;
+}

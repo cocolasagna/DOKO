@@ -1,6 +1,5 @@
-import classes from "./productlist.module.css";
+import classes from "./productlistseller.module.css";
 import ProductitemSeller from "../ProductItemSeller/ProductitemSeller";
-import { Link } from "react-router-dom";
 
 function Productlist(props) {
   return (
@@ -10,11 +9,9 @@ function Productlist(props) {
         {props.product.map((p) => (
           <ProductitemSeller
             image={p.image}
-            
             Id={p._id}
             productName={p.name}
             price={p.price}
-           
           />
         ))}
       </ul>
