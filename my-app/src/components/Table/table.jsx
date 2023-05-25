@@ -33,7 +33,7 @@ export const MuiTable = (props) => {
       <Table aria-label='Items Sold' stickyHeader>
         <TableHead>
           <TableRow>
-            <TableCell sx={{ backgroundColor: "#b5948c83" }}>Name</TableCell>
+            <TableCell sx={{ backgroundColor: "#b5948c83"  }}>Name</TableCell>
             <TableCell sx={{ backgroundColor: "#b5948c83" }}>Category</TableCell>
             <TableCell sx={{ backgroundColor: "#b5948c83" }}>Price</TableCell>
             <TableCell sx={{ backgroundColor: "#b5948c83" }} align='center'>Sold</TableCell>

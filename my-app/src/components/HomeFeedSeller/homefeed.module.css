@@ -21,7 +21,19 @@
   width: 75%;
   align-items: center;
   margin: 2.5%;
-  justify-content: center;
+  justify-content: space-around;
   /* background-color: rgba(255, 231, 231, 0.905); */
   border-radius: 35px;
+}
+
+
+.graphContent{
+  position: relative;
+  border: 1px solid black;
+  padding:1%;
+
+}
+
+.barContent{
+ position: relative;
 }

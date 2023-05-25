@@ -43,7 +43,7 @@ function BarChart(props) {
   return (
     <div>
       <Bar width={300} height={300} data={state} options={options} />
-      <p style={{ textAlign: "center" }}>Bar Chart</p>
+      <p style={{ textAlign: "center" }}>Orders</p>
     </div>
   );
 }
