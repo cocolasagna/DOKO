@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 function Updatefeed() {
   const name = useRef();
   const address = useRef();
-  const phone = useRef();
+  const phonenumber = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,7 +14,7 @@ function Updatefeed() {
     const updateProfile = {
       name: name.current.value,
       address: address.current.value,
-      phone: phone.current.value,
+      phonenumber: phonenumber.current.value,
     };
     try {
       const response = await axios.patch(
@@ -24,7 +24,7 @@ function Updatefeed() {
           withCredentials: true,
         }
       );
-      console.log(response.data);
+     
       window.location.href = "/home-page";
     } catch (error) {
       console.log(error);
@@ -59,7 +59,7 @@ function Updatefeed() {
         <div className={classes.inputBox}>
           <label htmlFor="phone-number">Phone No</label>
           <input
-            ref={phone}
+            ref={phonenumber}
             type="integer"
             required
             id="phone-number"
