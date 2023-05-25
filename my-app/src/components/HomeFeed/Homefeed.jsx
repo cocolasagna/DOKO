@@ -21,7 +21,7 @@ function Homefeed() {
         );
         setProduct(sortedProducts);*/
         const sortedProducts = res.data.products.sort((a, b) => 
-        a.price - b.price);
+        b.price - a.price);
         setProduct(sortedProducts);
       })
       .catch((err) => {
