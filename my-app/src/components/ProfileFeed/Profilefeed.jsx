@@ -5,12 +5,28 @@ import Profileproductlist from "../ProfileProductList/Profileproductlist";
 import { useContext } from "react";
 import HistoryContext from "../../store/history-context";
 import UsernameContext from "../../store/username-context";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 
 function Profilefeed() {
+
+
+  const [userdetail , setUserdetail] = useState([])
+  useEffect(()=>{
+    const fetchUserdetail = async()=>{
+        const response = await axios.get('http://localhost:5000/user/details',{
+          withCredentials:true
+        })
+        setUserdetail(response.data)
+       // console.log(response)
+      }
+        fetchUserdetail()
+  },[])
   const historyCtx = useContext(HistoryContext);
   const usernameCtx = useContext(UsernameContext);
   const history = JSON.parse(localStorage.getItem("history"));
-  console.log("data", history);
+
+ // console.log("data", history);
   let content;
 
   if (!history || history.length === 0) {
@@ -23,8 +39,8 @@ function Profilefeed() {
     <div className={classes.profileFeedWrapper}>
       <Userinfo
         name={usernameCtx.name}
-        address="Lazimpat,Kathmandu"
-        number="9869577154"
+        address={userdetail.address}
+        number={userdetail.phonenumber}
       />
       <hr className={classes.line}/>
       <div className={classes.profileContent}>{content}</div>
