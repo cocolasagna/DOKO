@@ -1,10 +1,10 @@
 .itemCover {
   /* border: 1px solid black; */
-  width: 21%;
-  min-width: 21%;
+  width: 25%;
+  min-width: 25%;
   margin-right: 3rem;
-  margin-bottom: 5%;
-  height: 137%;
+  margin-bottom: 12%;
+  height: 73%;
   border-radius: 30px;
   box-shadow: 2px 2px 5px 2px rgba(37, 37, 37, 0.234);
   padding: 1%;
@@ -12,7 +12,7 @@
 }
 
 .itemCover:hover {
-  height: 94%;
+  height: 75%;
   border-radius: 30px 30px 0px 0px;
   background-color: #d3ab9f74;
 }
@@ -30,7 +30,7 @@
   width: 100%;
   height: 100%;
   border-radius: 30px 30px 30px 30px;
-  /* border: 2px solid black; */
+  border: 1px solid black;
 }
 
 .itemInfo {
@@ -39,7 +39,7 @@
   border-radius: 30px;
   width: 95%;
   right: 1%;
-  top: 1%;
+  bottom: -10px;
   margin: 10px 10px 10px 10px;
   background-color: #b5948c83;
   height: 100%;
@@ -57,24 +57,34 @@
   max-width: 200px;
   max-height: 120px;
   font-size: 1.3rem;
-  left: 10%;
+  left: 12%;
 }
 
 .infoDown {
   /* border: 2px solid orange; */
   position: relative;
-  height: 110%;
-  padding: 4%;
-  display: flex;
+  height: 120%;
+  padding: 2%;
+
   justify-content: left;
   align-items: top;
 }
 
-.infoDown span {
-  font-size: 22px;
+.buttons {
   position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  top: 7px;
   left: 2%;
-  bottom: 5px;
+  margin-bottom: 12px;
+}
+
+.infoDown span {
+  font-size: 120%;
+  position: relative;
+  left: 10%;
+  bottom: 7%;
 }
 
 .addBtn {

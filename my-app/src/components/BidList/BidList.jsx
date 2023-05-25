@@ -7,24 +7,20 @@ import Notificationitem from "../NotificationItem/Noitficationitem";
 import Notificationlist from "../NotificationList/Notificationlist";
 
 function BidList(props) {
-
-
-
   return (
     <div className={classes.bidlistCover}>
       <h1>Offers</h1>
+      <hr className={classes.line} />
       <ul className={classes.bidlist}>
-        {
-        props.product.map((p) => (
-         
-          <Biditem 
-           id = {p._id}
-           bid = {p.bidAmount}
-           price = {p.price}
-           name = {p.product.name}
-           least = {p.product.bid}
-           image = {p.product.image}
-           bidAccept = {p.bidAccept}
+        {props.product.map((p) => (
+          <Biditem
+            id={p._id}
+            bid={p.bidAmount}
+            price={p.price}
+            name={p.product.name}
+            least={p.product.bid}
+            image={p.product.image}
+            bidAccept={p.bidAccept}
           />
         ))}
       </ul>

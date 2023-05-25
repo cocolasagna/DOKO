@@ -17,9 +17,10 @@
   align-items: center;
   padding: 1%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   /* justify-content: space-around; */
-  /* overflow-x: scroll; */
+  overflow-x: scroll;
 }
 
 .pagination {
