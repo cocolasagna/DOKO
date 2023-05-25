@@ -20,7 +20,7 @@ function Mybidsitem(props) {
               <span className={classes.price}> ${props.price}</span>
             </div>
             <div className={classes.infoDownBid}>
-              <span>Bid Amount: ${props.price}</span>
+              <span>Bid Amount: ${props.bid}</span>
             </div>
           </div>
         </div>

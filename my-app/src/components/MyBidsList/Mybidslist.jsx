@@ -12,7 +12,7 @@ function Mybidslist(props) {
             image={n.product.image}
             name={n.product.name}
             price={n.product.price}
-            bid={n.product.bidAmount}
+            bid={n.bidAmount}
           />
         ))}
       </ul>
