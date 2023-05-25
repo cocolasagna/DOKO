@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser')
 const jwt = require("jsonwebtoken");
 const auth = require("./auth-controller");
 const BuyerBid = require('../models/BuyerBid')
-
+const bcrypt = require('bcrypt')
 const uuidv4 = require('uuid').v4
 const sessions ={}
 //register seller
@@ -187,6 +187,46 @@ const bidAccept = async(req,res)=>{
   }
   }
 
+  const updatePassword = async(req,res)=>{
+    const seller = req.seller
+    const sellerId = seller.id
+    const newPassword = req.body.newPassword
+    const hash =  bcrypt.hashSync(newPassword, 8)
+    try {
+        const seller = await Seller.findByIdAndUpdate(sellerId,{
+            $set:{password: hash}
+        })
+        console.log('password changed')
+    } catch (error) {
+        console.log(error)
+    }
+  }
+
+  const updateprofile = async (req, res) => {
+    const seller = req.seller
+    const sellerId = seller.id
+    const updates = Object.keys(req.body);
+    console.log('update', req.body)
+    const allowedUpdates = ["name",  "phonenumber"];
+    const isValidOperation = updates.every((update) =>
+    allowedUpdates.includes(update)
+    );
+    if (!isValidOperation) {
+    return res.status(400).send({ error: "Invalid updates" });
+    }
+    try {
+    const updatedseller = await Seller.findByIdAndUpdate(sellerId, req.body, {
+    new: true,
+    runValidators: true,
+    });
+    if (!updatedseller) {
+    return res.status(404).send();
+    }
+    window.location.reload();
+    } catch (error) {
+    res.status(400).send(error);
+    }
+    }
 
 
-module.exports = {register ,login ,  product , addproduct, updateproduct, deleteproduct , productdetails , logout , offers , bidAccept}
+module.exports = {register ,login ,  updateprofile ,product , addproduct, updateproduct, deleteproduct , productdetails , updatePassword,logout , offers , bidAccept}
