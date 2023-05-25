@@ -38,7 +38,7 @@ function Productfeed() {
         }
       );
       console.log(response.data);
-      //window.location.href = "/home-page";
+      window.location.href = "/bids-page";
     } catch (error) {
       console.log(error);
       alert("Bid amount insufficient")
