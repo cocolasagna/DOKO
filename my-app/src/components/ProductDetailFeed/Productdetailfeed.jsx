@@ -37,7 +37,7 @@ function Productdetailfeed() {
             <div className={classes.infoUp}>
               <div className={classes.itemInfoUp}>
                 <h1>{product.name}</h1>
-                <span> Price: ${product.bid}</span>
+                <span> Lowest Price: ${product.bid}</span>
               </div>
               <div className={classes.itemInfoDown}>
                 <span> Price: ${product.price}</span>
